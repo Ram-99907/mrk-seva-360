@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import {
   Phone, Menu, X, ChevronDown, LayoutDashboard, LogOut, User,
@@ -41,14 +41,43 @@ export default function Navbar() {
   const dropRef      = useRef<HTMLDivElement>(null);
   const specRef      = useRef<HTMLDivElement>(null);
   const searchRef    = useRef<HTMLInputElement>(null);
-  const isHome       = location.pathname === '/';
+  const isHome = location.pathname === '/';
 
-  /* Always solid white navbar with coloured text */
-  const navBg = 'bg-white border-slate-200 shadow-md';
+  /* Scroll + outside click effects */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  const logoColor   = 'text-[#1e3a8a]';
-  const logoSub     = 'text-slate-500';
-  const linkColor   = 'text-slate-600 hover:text-[#1e3a8a] hover:bg-slate-100';
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropRef.current && !dropRef.current.contains(e.target as Node)) setUserDropOpen(false);
+      if (specRef.current && !specRef.current.contains(e.target as Node)) setSpecialtyOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  useEffect(() => { setMobileOpen(false); setSpecialtyOpen(false); }, [location.pathname]);
+  useEffect(() => { if (searchOpen) searchRef.current?.focus(); }, [searchOpen]);
+
+  const handleLogout = () => { logout(); setUserDropOpen(false); navigate('/'); };
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQ.trim()) { navigate(`/hospitals?q=${encodeURIComponent(searchQ)}`); setSearchOpen(false); setSearchQ(''); }
+  };
+
+  const unreadCount = useAppStore(s =>
+    s.notifications.filter(n => !n.read && n.userId === s.currentUser?.id).length
+  );
+
+  /* Always solid white navbar — coloured text on every page */
+  const navBg           = 'bg-white border-slate-200 shadow-md';
+  const logoColor       = 'text-[#1e3a8a]';
+  const logoSub         = 'text-slate-500';
+  const linkColor       = 'text-slate-600 hover:text-[#1e3a8a] hover:bg-slate-100';
   const activeLinkColor = 'bg-[#1e3a8a]/8 text-[#1e3a8a] font-semibold';
 
   return (
