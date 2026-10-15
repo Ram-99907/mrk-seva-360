@@ -158,7 +158,7 @@ export default function AmbulanceTracker({ height = '600px' }: { height?: string
         const from = route[newWpIdx] as [number, number];
         const to   = route[(newWpIdx + 1) % route.length] as [number, number];
         const [lat, lng] = lerp(from, to, newProgress);
-        const trail: [number, number][] = [...amb.trail, [amb.lat, amb.lng]].slice(-14);
+        const trail: [number, number][] = [...amb.trail, [amb.lat, amb.lng] as [number, number]].slice(-14);
         return { ...amb, lat, lng, waypointIdx: newWpIdx, progress: newProgress, trail };
       }));
     }, 80);
@@ -206,7 +206,7 @@ export default function AmbulanceTracker({ height = '600px' }: { height?: string
             <div key={amb.id}>
               {amb.trail.length > 1 && (
                 <Polyline
-                  positions={[...amb.trail, [amb.lat, amb.lng]]}
+                  positions={[...amb.trail, [amb.lat, amb.lng] as [number, number]]}
                   pathOptions={{ color, weight: isSelected ? 3 : 2, opacity: 0.45, dashArray:'4 6' }}
                 />
               )}
