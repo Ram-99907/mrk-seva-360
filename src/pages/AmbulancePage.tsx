@@ -4,10 +4,10 @@ import PageLayout from '../components/layout/PageLayout';
 import AmbulanceTracker from '../components/map/AmbulanceTracker';
 
 const STATS = [
-  { label: 'Total Ambulances',  value: '6',    icon: Ambulance,      color: 'bg-blue-50 text-blue-700',   border: 'border-blue-100' },
-  { label: 'Available Now',     value: '2',    icon: Shield,         color: 'bg-green-50 text-green-700', border: 'border-green-100' },
-  { label: 'En Route / On Call',value: '3',    icon: Activity,       color: 'bg-red-50 text-red-700',     border: 'border-red-100' },
-  { label: 'Avg Response Time', value: '4 min',icon: Radio,          color: 'bg-amber-50 text-amber-700', border: 'border-amber-100' },
+  { label: 'Total Ambulances',   value: '15',   icon: Ambulance, color: 'bg-blue-50 text-blue-700',   border: 'border-blue-100' },
+  { label: 'Available Now',      value: '5',    icon: Shield,    color: 'bg-green-50 text-green-700', border: 'border-green-100' },
+  { label: 'En Route / On Call', value: '7',    icon: Activity,  color: 'bg-red-50 text-red-700',     border: 'border-red-100' },
+  { label: 'Avg Response Time',  value: '4 min',icon: Radio,     color: 'bg-amber-50 text-amber-700', border: 'border-amber-100' },
 ];
 
 const LEGEND = [
