@@ -33,15 +33,15 @@ export default function PageLayout({ children, showFooter = true }: PageLayoutPr
         }`}
       >
         <Link
-          to="/hospitals"
+          to="/book-appointment"
           className="flex items-center gap-2 rounded-full bg-[#f59e0b] px-5 py-3 text-sm font-bold text-white shadow-2xl hover:bg-[#d97706] hover:scale-105 active:scale-95 transition-all"
           aria-label="Book an Appointment"
         >
           <CalendarPlus className="size-5" />
           <span>Book Appointment</span>
         </Link>
-        {/* Pulsing ring */}
-        <span className="absolute inset-0 rounded-full bg-[#f59e0b]/30 animate-ping" aria-hidden="true" />
+        {/* Pulsing ring — pointer-events-none so it never blocks clicks */}
+        <span className="absolute inset-0 rounded-full bg-[#f59e0b]/30 animate-ping pointer-events-none" aria-hidden="true" />
       </div>
     </div>
   );

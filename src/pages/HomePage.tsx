@@ -660,33 +660,50 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Embedded Google Map */}
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-slate-50">
+          {/* Embedded Google Map — Kadapa Satellite View */}
+          <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
             <div className="bg-gradient-to-r from-navy-DEFAULT to-teal-600 px-6 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-white" />
-                <h3 className="font-bold text-white font-display">Live Hospital Map</h3>
+                <h3 className="font-bold text-white font-display">Hospitals Near Kadapa District</h3>
                 <span className="flex items-center gap-1.5 bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                  <span className="live-dot" /> Live
+                  <span className="live-dot" /> Live Satellite
                 </span>
               </div>
-              <Link to="/hospitals/map" className="flex items-center gap-1 text-white/80 hover:text-white text-sm font-semibold transition-colors">
-                Full Map View <ArrowRight className="w-4 h-4" />
-              </Link>
+              <a
+                href="https://www.google.com/maps/search/hospitals+near+Kadapa+Andhra+Pradesh/@14.4673,78.8242,13z"
+                target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1 text-white/80 hover:text-white text-sm font-semibold transition-colors"
+              >
+                Open in Google Maps <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
+            {/* Satellite view of Kadapa */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448193.95105137974!2d76.76357124999999!3d28.644287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1697298000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30889.32!2d78.8242!3d14.4673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shospitals+near+Kadapa+Andhra+Pradesh!5e1!3m2!1sen!2sin!4v1697298000000"
               width="100%"
-              height="400"
+              height="480"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Hospital Location Map"
+              title="Hospitals Near Kadapa — Satellite View"
               className="w-full"
             />
-            <div className="px-6 py-3 bg-amber-50 border-t border-amber-100 text-xs text-amber-700 font-medium">
-              🧪 Demo Map · Showing New Delhi area · In production, this shows nearest verified hospitals to your location
+            {/* Quick hospital links */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 border-t border-slate-200">
+              {[
+                { name: 'RIMS Kadapa', id: 'h005' },
+                { name: 'District HQ Hospital', id: 'h015' },
+                { name: 'Holy Cross Hospital', id: 'h016' },
+                { name: 'Siva Sai Hospital', id: 'h013' },
+              ].map(h => (
+                <Link key={h.id} to={`/hospitals/${h.id}`}
+                  className="flex items-center gap-2 px-4 py-3 text-xs font-semibold text-navy-DEFAULT hover:bg-[#f0f4ff] border-r last:border-0 border-slate-200 transition-colors">
+                  <span className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
+                  {h.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

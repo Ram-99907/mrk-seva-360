@@ -43,7 +43,7 @@ export default function Navbar() {
   const searchRef    = useRef<HTMLInputElement>(null);
   const isHome       = location.pathname === '/';
 
-  /* ── Scroll effect: transparent over hero, solid after ── */
+  /* â”€â”€ Scroll effect: transparent over hero, solid after â”€â”€ */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -51,7 +51,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* ── Close dropdowns on outside click ── */
+  /* â”€â”€ Close dropdowns on outside click â”€â”€ */
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (dropRef.current && !dropRef.current.contains(e.target as Node)) setUserDropOpen(false);
@@ -75,7 +75,7 @@ export default function Navbar() {
     s.notifications.filter(n => !n.read && n.userId === s.currentUser?.id).length
   );
 
-  /* ── Navbar style: transparent on hero, solid on scroll ── */
+  /* â”€â”€ Navbar style: transparent on hero, solid on scroll â”€â”€ */
   const navBg = isHome && !scrolled
     ? 'bg-transparent border-transparent'
     : 'bg-white border-slate-200 shadow-md';
@@ -91,7 +91,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ─── Emergency Bar ─────────────────────────────────── */}
+      {/* â”€â”€â”€ Emergency Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="emergency-bar" role="region" aria-label="Emergency helplines">
         <div className="mx-auto flex max-w-7xl items-center gap-3 overflow-x-auto px-4 py-2 scrollbar-none">
           <span className="flex shrink-0 items-center gap-2 text-xs font-bold uppercase tracking-wider text-white">
@@ -112,10 +112,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ─── Tricolor ──────────────────────────────────────── */}
+      {/* â”€â”€â”€ Tricolor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="tricolor-stripe" aria-hidden="true" />
 
-      {/* ─── Main Header ───────────────────────────────────── */}
+      {/* â”€â”€â”€ Main Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <header className={`sticky top-0 z-40 border-b transition-all duration-300 ${navBg}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
 
@@ -169,7 +169,7 @@ export default function Navbar() {
                   <div className="mt-3 pt-3 border-t border-slate-100">
                     <Link to="/hospitals" onClick={() => setSpecialtyOpen(false)}
                       className="flex items-center justify-center gap-2 w-full py-2 rounded-xl bg-navy-DEFAULT text-white text-xs font-bold hover:bg-[#0f2056] transition-colors">
-                      View All Specialties →
+                      View All Specialties â†’
                     </Link>
                   </div>
                 </div>
@@ -269,7 +269,7 @@ export default function Navbar() {
                   }`}>
                   Sign In
                 </Link>
-                <Link to="/hospitals"
+                <Link to="/book-appointment"
                   className="rounded-xl bg-[#f59e0b] hover:bg-[#d97706] text-white font-bold px-4 py-2 text-sm transition-all shadow-lg hover:shadow-xl">
                   Book Appointment
                 </Link>
@@ -286,7 +286,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── Global Search Bar ──────────────────────────────── */}
+        {/* â”€â”€ Global Search Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         {searchOpen && (
           <div className="border-t border-slate-100 bg-white px-4 py-3 animate-slide-down">
             <form onSubmit={handleSearch} className="max-w-2xl mx-auto flex gap-2">
@@ -297,7 +297,7 @@ export default function Navbar() {
                   type="text"
                   value={searchQ}
                   onChange={e => setSearchQ(e.target.value)}
-                  placeholder="Search hospitals, doctors, specialties, city…"
+                  placeholder="Search hospitals, doctors, specialties, cityâ€¦"
                   className="flex-1 bg-transparent outline-none text-slate-800 text-sm placeholder-slate-400"
                 />
                 {searchQ && (
@@ -326,7 +326,7 @@ export default function Navbar() {
           </div>
         )}
 
-        {/* ── Mobile Drawer ────────────────────────────────────── */}
+        {/* â”€â”€ Mobile Drawer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         {mobileOpen && (
           <div className="lg:hidden border-t border-slate-100 bg-white animate-slide-down">
             <nav className="px-4 py-4 flex flex-col gap-1">
@@ -361,7 +361,7 @@ export default function Navbar() {
                   <Link to="/login" className="flex-1 rounded-lg border border-slate-200 py-2.5 text-center text-sm font-medium text-slate-600">
                     Sign In
                   </Link>
-                  <Link to="/hospitals" className="flex-1 rounded-lg bg-[#f59e0b] py-2.5 text-center text-sm font-bold text-white">
+                  <Link to="/book-appointment" className="flex-1 rounded-lg bg-[#f59e0b] py-2.5 text-center text-sm font-bold text-white">
                     Book Now
                   </Link>
                 </div>
@@ -373,3 +373,4 @@ export default function Navbar() {
     </>
   );
 }
+
