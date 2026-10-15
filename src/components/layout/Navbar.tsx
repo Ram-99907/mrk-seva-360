@@ -185,6 +185,15 @@ export default function Navbar() {
               <span>🚑</span> Ambulance
             </NavLink>
 
+            <NavLink to="/consult"
+              className={({ isActive }) =>
+                `flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold transition-all ${isActive ? activeLinkColor : 'text-teal-600 hover:text-teal-700 hover:bg-teal-50'}`}>
+              <span className="relative flex items-center gap-1">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                Video Consult
+              </span>
+            </NavLink>
+
             <a href="#packages"
               className={`rounded-md px-3 py-2 text-sm font-medium transition-all ${linkColor}`}>
               Health Packages
@@ -332,6 +341,7 @@ export default function Navbar() {
                 { to: '/hospitals', label: 'Find Hospitals' },
                 { to: '/hospitals/map', label: 'Live Map' },
                 { to: '/ambulance', label: '🚑 Ambulance Tracker' },
+                { to: '/consult', label: '🟢 Video Consult' },
               ].map(link => (
                 <NavLink key={link.label} to={link.to} end={link.end}
                   className={({ isActive }) =>
