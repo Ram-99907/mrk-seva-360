@@ -7,6 +7,7 @@ import HospitalsPage from './pages/HospitalsPage';
 import HospitalDetailPage from './pages/HospitalDetailPage';
 import HospitalsMapPage from './pages/HospitalsMapPage';
 import AppointmentBookingPage from './pages/AppointmentBookingPage';
+import AmbulancePage from './pages/AmbulancePage';
 
 // Auth pages
 import LoginPage from './pages/auth/LoginPage';
@@ -46,6 +47,7 @@ function App() {
         <Route path="/hospitals/map" element={<HospitalsMapPage />} />
         <Route path="/hospitals/:id" element={<HospitalDetailPage />} />
         <Route path="/book-appointment" element={<AppointmentBookingPage />} />
+        <Route path="/ambulance" element={<AmbulancePage />} />
 
         {/* Auth */}
         <Route path="/login" element={<LoginPage />} />

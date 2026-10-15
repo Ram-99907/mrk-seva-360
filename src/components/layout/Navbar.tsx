@@ -188,6 +188,12 @@ export default function Navbar() {
               Live Map
             </NavLink>
 
+            <NavLink to="/ambulance"
+              className={({ isActive }) =>
+                `flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-all ${isActive ? activeLinkColor : linkColor}`}>
+              <span>🚑</span> Ambulance
+            </NavLink>
+
             <a href="#packages"
               className={`rounded-md px-3 py-2 text-sm font-medium transition-all ${linkColor}`}>
               Health Packages
@@ -334,6 +340,7 @@ export default function Navbar() {
                 { to: '/', label: 'Home', end: true },
                 { to: '/hospitals', label: 'Find Hospitals' },
                 { to: '/hospitals/map', label: 'Live Map' },
+                { to: '/ambulance', label: '🚑 Ambulance Tracker' },
               ].map(link => (
                 <NavLink key={link.label} to={link.to} end={link.end}
                   className={({ isActive }) =>
