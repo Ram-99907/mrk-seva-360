@@ -103,7 +103,60 @@ export default function AppointmentForm({ hospitalId, hospitalName, specialties,
       return;
     }
     setIsLoading(true);
-    await new Promise(r => setTimeout(r, 1000));
+
+    // Try real API first; fall back to local demo store
+    try {
+      const res = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          patientId: currentUser!.id,
+          patientName: form.patientName,
+          patientPhone: form.patientPhone,
+          patientEmail: form.patientEmail,
+          hospitalId,
+          hospitalName,
+          department: form.specialty,
+          preferredDate: form.preferredDate,
+          preferredTime: form.preferredTime,
+          reason: form.reason || undefined,
+        }),
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        // Map DB row to Appointment shape used by local store
+        const dbRow = json.data as Record<string, unknown>;
+        const appt: Appointment = {
+          id: String(dbRow.id),
+          reference: `MS360-${String(dbRow.id).slice(0, 8).toUpperCase()}`,
+          patientId: currentUser!.id,
+          patientName: form.patientName,
+          patientPhone: form.patientPhone,
+          patientEmail: form.patientEmail,
+          hospitalId,
+          hospitalName,
+          specialty: form.specialty,
+          preferredDoctor: form.preferredDoctor || undefined,
+          preferredDate: form.preferredDate,
+          preferredTime: form.preferredTime,
+          reason: form.reason || undefined,
+          status: 'pending',
+          queueNumber: Number(dbRow.token_number),
+          createdAt: String(dbRow.created_at),
+          updatedAt: String(dbRow.updated_at),
+          statusHistory: [],
+        };
+        setIsLoading(false);
+        setSuccessAppt(appt);
+        if (onSuccess) onSuccess(appt);
+        return;
+      }
+    } catch {
+      // API unavailable (local dev without DB) — fall through to demo store
+    }
+
+    // Demo store fallback
     const appt = submitAppointment({
       patientId: currentUser!.id,
       patientName: form.patientName,
