@@ -5,11 +5,12 @@ import {
   Stethoscope, Heart, Microscope, BedDouble, Ambulance, Clock,
   Phone, Users, Award, ArrowRight, HeartPulse, CalendarPlus,
   ChevronLeft, Play, CheckCircle, Download, Smartphone,
-  BadgeCheck, Video, Newspaper, Package, LocateFixed, X,
+  BadgeCheck, Video, Newspaper, Package, LocateFixed, X, Trash2,
 } from 'lucide-react';
 import { DEMO_HOSPITALS } from '../data/demoData';
 import PageLayout from '../components/layout/PageLayout';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { saveVideoBlob, loadVideoBlob, clearVideoBlob } from '../utils/videoDB';
 
 // ─── Hero Slides ───────────────────────────────────────────────────────────────
 const HERO_SLIDES = [
@@ -188,21 +189,77 @@ const STATS = [
 
 // ─── Video Modal ──────────────────────────────────────────────────────────────
 function VideoModal({ onClose }: { onClose: () => void }) {
-  const [localUrl, setLocalUrl] = useState<string | null>(null);
-  const [hasLocal, setHasLocal] = useState(false);
+  const [videoUrl, setVideoUrl]     = useState<string | null>(null);
+  const [hasPublic, setHasPublic]   = useState(false);
+  const [saving, setSaving]         = useState(false);
+  const [toast, setToast]           = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const blobUrlRef = useRef<string | null>(null); // track for cleanup
 
-  // Check if user already uploaded a video to public/
+  /* 1️⃣ On mount: try to restore video from IndexedDB, then check /story-video.mp4 */
   useEffect(() => {
-    fetch('/story-video.mp4', { method: 'HEAD' })
-      .then(r => { if (r.ok) setHasLocal(true); })
-      .catch(() => {});
+    let cancelled = false;
+    (async () => {
+      try {
+        const blob = await loadVideoBlob();
+        if (blob && !cancelled) {
+          const url = URL.createObjectURL(blob);
+          blobUrlRef.current = url;
+          setVideoUrl(url);
+          return; // IndexedDB has a video — done
+        }
+      } catch { /* ignore */ }
+      // Fallback: check if /story-video.mp4 exists in public/
+      if (!cancelled) {
+        fetch('/story-video.mp4', { method: 'HEAD' })
+          .then(r => { if (r.ok && !cancelled) setHasPublic(true); })
+          .catch(() => {});
+      }
+    })();
+    return () => {
+      cancelled = true;
+      if (blobUrlRef.current) {
+        URL.revokeObjectURL(blobUrlRef.current);
+        blobUrlRef.current = null;
+      }
+    };
   }, []);
 
-  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /* Show toast for 3 seconds */
+  const showToast = (msg: string) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 3000);
+  };
+
+  /* 2️⃣ Handle file upload — save to IndexedDB */
+  const handleFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    setLocalUrl(URL.createObjectURL(file));
+    setSaving(true);
+    try {
+      await saveVideoBlob(file);
+      // revoke old url if any
+      if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current);
+      const url = URL.createObjectURL(file);
+      blobUrlRef.current = url;
+      setVideoUrl(url);
+      showToast('✅ Video saved! Will appear here even after refresh.');
+    } catch {
+      showToast('❌ Could not save video. Try a smaller file.');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  /* 3️⃣ Remove saved video */
+  const handleRemove = async () => {
+    await clearVideoBlob().catch(() => {});
+    if (blobUrlRef.current) {
+      URL.revokeObjectURL(blobUrlRef.current);
+      blobUrlRef.current = null;
+    }
+    setVideoUrl(null);
+    showToast('🗑️ Video removed.');
   };
 
   return (
@@ -214,12 +271,19 @@ function VideoModal({ onClose }: { onClose: () => void }) {
           <X className="w-5 h-5" />
         </button>
 
+        {/* Toast notification */}
+        {toast && (
+          <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 bg-slate-800 text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
+            {toast}
+          </div>
+        )}
+
         {/* Video player */}
         <div className="aspect-video">
-          {localUrl ? (
-            /* Uploaded file via file picker */
-            <video src={localUrl} autoPlay controls className="w-full h-full object-cover" />
-          ) : hasLocal ? (
+          {videoUrl ? (
+            /* IndexedDB-restored or newly uploaded video */
+            <video src={videoUrl} autoPlay controls className="w-full h-full object-cover" />
+          ) : hasPublic ? (
             /* Pre-placed video in public/story-video.mp4 */
             <video src="/story-video.mp4" autoPlay controls className="w-full h-full object-cover" />
           ) : (
@@ -234,24 +298,39 @@ function VideoModal({ onClose }: { onClose: () => void }) {
           )}
         </div>
 
-        {/* Upload your own video button */}
-        {!localUrl && (
-          <div className="bg-slate-900 px-4 py-3 flex items-center justify-between gap-3">
-            <p className="text-slate-400 text-xs">📁 Want to show your own video here?</p>
-            <button
-              onClick={() => fileRef.current?.click()}
-              className="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors">
-              ⬆️ Upload Video
-            </button>
-            <input ref={fileRef} type="file" accept="video/*" className="hidden" onChange={handleFile} />
-          </div>
-        )}
+        {/* Bottom bar */}
+        <div className="bg-slate-900 px-4 py-3 flex items-center justify-between gap-3">
+          {videoUrl ? (
+            <>
+              <p className="text-slate-400 text-xs">📹 Your custom video (saved on this device)</p>
+              <button
+                onClick={handleRemove}
+                className="flex items-center gap-1.5 bg-red-700 hover:bg-red-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Remove
+              </button>
+            </>
+          ) : (
+            <>
+              <p className="text-slate-400 text-xs">📁 Add your own video — it will persist after refresh!</p>
+              <button
+                onClick={() => fileRef.current?.click()}
+                disabled={saving}
+                className="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
+              >
+                {saving ? '⏳ Saving…' : '⬆️ Upload Video'}
+              </button>
+              <input ref={fileRef} type="file" accept="video/*" className="hidden" onChange={handleFile} />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+
 export default function HomePage() {
   const navigate = useNavigate();
   const [slide, setSlide] = useState(0);
