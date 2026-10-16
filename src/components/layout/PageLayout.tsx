@@ -4,6 +4,7 @@ import { CalendarPlus } from 'lucide-react';
 import DemoBanner from '../ui/DemoBanner';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import AIAssistant from '../ui/AIAssistant';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -40,9 +41,11 @@ export default function PageLayout({ children, showFooter = true }: PageLayoutPr
           <CalendarPlus className="size-5" />
           <span>Book Appointment</span>
         </Link>
-        {/* Pulsing ring — pointer-events-none so it never blocks clicks */}
         <span className="absolute inset-0 rounded-full bg-[#f59e0b]/30 animate-ping pointer-events-none" aria-hidden="true" />
       </div>
+
+      {/* ── AI Health Assistant ── */}
+      <AIAssistant />
     </div>
   );
 }

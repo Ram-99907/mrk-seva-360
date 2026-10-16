@@ -188,21 +188,64 @@ const STATS = [
 
 // ─── Video Modal ──────────────────────────────────────────────────────────────
 function VideoModal({ onClose }: { onClose: () => void }) {
+  const [localUrl, setLocalUrl] = useState<string | null>(null);
+  const [hasLocal, setHasLocal] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  // Check if user already uploaded a video to public/
+  useEffect(() => {
+    fetch('/story-video.mp4', { method: 'HEAD' })
+      .then(r => { if (r.ok) setHasLocal(true); })
+      .catch(() => {});
+  }, []);
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setLocalUrl(URL.createObjectURL(file));
+  };
+
   return (
-    <div className="fixed inset-0 z-[200] bg-black/80 flex items-center justify-center p-4" onClick={onClose}>
-      <div className="relative w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
+    <div className="fixed inset-0 z-[200] bg-black/85 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="relative w-full max-w-3xl bg-black rounded-2xl overflow-hidden shadow-2xl"
         onClick={e => e.stopPropagation()}>
         <button onClick={onClose}
           className="absolute top-3 right-3 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-1.5 transition-all">
           <X className="w-5 h-5" />
         </button>
-        <iframe
-          src="https://www.youtube.com/embed/gWRMT7eLSag?autoplay=1&rel=0"
-          title="How MRK SEVA 360 Works"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        />
+
+        {/* Video player */}
+        <div className="aspect-video">
+          {localUrl ? (
+            /* Uploaded file via file picker */
+            <video src={localUrl} autoPlay controls className="w-full h-full object-cover" />
+          ) : hasLocal ? (
+            /* Pre-placed video in public/story-video.mp4 */
+            <video src="/story-video.mp4" autoPlay controls className="w-full h-full object-cover" />
+          ) : (
+            /* Default YouTube embed */
+            <iframe
+              src="https://www.youtube.com/embed/gWRMT7eLSag?autoplay=1&rel=0"
+              title="How MRK SEVA 360 Works"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          )}
+        </div>
+
+        {/* Upload your own video button */}
+        {!localUrl && (
+          <div className="bg-slate-900 px-4 py-3 flex items-center justify-between gap-3">
+            <p className="text-slate-400 text-xs">📁 Want to show your own video here?</p>
+            <button
+              onClick={() => fileRef.current?.click()}
+              className="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors">
+              ⬆️ Upload Video
+            </button>
+            <input ref={fileRef} type="file" accept="video/*" className="hidden" onChange={handleFile} />
+          </div>
+        )}
       </div>
     </div>
   );
