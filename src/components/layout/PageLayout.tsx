@@ -5,6 +5,7 @@ import DemoBanner from '../ui/DemoBanner';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import AIAssistant from '../ui/AIAssistant';
+import InstallPrompt from '../ui/InstallPrompt';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -46,6 +47,9 @@ export default function PageLayout({ children, showFooter = true }: PageLayoutPr
 
       {/* ── AI Health Assistant ── */}
       <AIAssistant />
+
+      {/* ── PWA Install Prompt ── */}
+      <InstallPrompt />
     </div>
   );
 }
