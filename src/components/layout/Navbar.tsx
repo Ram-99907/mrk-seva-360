@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useAppStore } from '../../store/appStore';
 import { EMERGENCY_HELPLINES } from '../../data/demoData';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const SPECIALTIES_MENU = [
   { icon: Heart,       label: 'Cardiology',     link: '/hospitals?specialty=Cardiology' },
@@ -208,6 +209,9 @@ export default function Navbar() {
               className={`rounded-full p-2 transition-all ${isHome && !scrolled ? 'text-white/80 hover:bg-white/15' : 'text-slate-500 hover:bg-slate-100'}`}>
               <Search className="size-4" />
             </button>
+
+            {/* Language switcher */}
+            <LanguageSwitcher />
 
             {isAuthenticated && currentUser ? (
               <>

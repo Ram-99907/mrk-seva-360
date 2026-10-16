@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { X, LogOut, Bell, Menu, ChevronLeft, Home } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useAppStore } from '../../store/appStore';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 interface SidebarItem {
   label: string;
@@ -205,6 +206,9 @@ export default function DashboardLayout({ children, sidebarItems, headerTitle, h
                     </span>
                   )}
                 </Link>
+
+                {/* Language switcher */}
+                <LanguageSwitcher />
 
                 {/* Back to site */}
                 <Link
