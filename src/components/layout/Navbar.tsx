@@ -9,6 +9,7 @@ import {
 import { useAppStore } from '../../store/appStore';
 import { EMERGENCY_HELPLINES } from '../../data/demoData';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const SPECIALTIES_MENU = [
   { icon: Heart,       label: 'Cardiology',     link: '/hospitals?specialty=Cardiology' },
@@ -31,6 +32,7 @@ export default function Navbar() {
   const { isAuthenticated, currentUser, logout } = useAppStore();
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [userDropOpen, setUserDropOpen] = useState(false);
@@ -134,7 +136,7 @@ export default function Navbar() {
             <NavLink to="/" end
               className={({ isActive }) =>
                 `rounded-md px-3 py-2 text-sm font-medium transition-all ${isActive ? activeLinkColor : linkColor}`}>
-              Home
+              {t('nav.home')}
             </NavLink>
 
             {/* Specialties dropdown */}
@@ -171,7 +173,7 @@ export default function Navbar() {
             <NavLink to="/hospitals"
               className={({ isActive }) =>
                 `rounded-md px-3 py-2 text-sm font-medium transition-all ${isActive ? activeLinkColor : linkColor}`}>
-              Find Hospitals
+              {t('nav.hospitals')}
             </NavLink>
 
             <NavLink to="/hospitals/map"
@@ -183,7 +185,7 @@ export default function Navbar() {
             <NavLink to="/ambulance"
               className={({ isActive }) =>
                 `flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-all ${isActive ? activeLinkColor : linkColor}`}>
-              <span>🚑</span> Ambulance
+              <span>🚑</span> {t('nav.ambulance')}
             </NavLink>
 
             <NavLink to="/consult"
@@ -191,7 +193,7 @@ export default function Navbar() {
                 `flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-semibold transition-all ${isActive ? activeLinkColor : 'text-teal-600 hover:text-teal-700 hover:bg-teal-50'}`}>
               <span className="relative flex items-center gap-1">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                Video Consult
+                {t('nav.consult')}
               </span>
             </NavLink>
 
@@ -248,7 +250,7 @@ export default function Navbar() {
                       <div className="py-1">
                         <Link to={getDashboardPath(currentUser.role)} onClick={() => setUserDropOpen(false)}
                           className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50">
-                          <LayoutDashboard className="size-4 text-teal-500" /> Dashboard
+                          <LayoutDashboard className="size-4 text-teal-500" /> {t('nav.dashboard')}
                         </Link>
                         <Link to={`/${currentUser.role}/profile`} onClick={() => setUserDropOpen(false)}
                           className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50">
@@ -264,7 +266,7 @@ export default function Navbar() {
                       <div className="border-t border-slate-100 py-1">
                         <button onClick={handleLogout}
                           className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50">
-                          <LogOut className="size-4" /> Sign Out
+                          <LogOut className="size-4" /> {t('nav.logout')}
                         </button>
                       </div>
                     </div>
@@ -277,11 +279,11 @@ export default function Navbar() {
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition-all ${
                     isHome && !scrolled ? 'text-white/90 hover:bg-white/15' : 'text-slate-600 hover:bg-slate-100'
                   }`}>
-                  Sign In
+                  {t('nav.login')}
                 </Link>
                 <Link to="/book-appointment"
                   className="rounded-xl bg-[#f59e0b] hover:bg-[#d97706] text-white font-bold px-4 py-2 text-sm transition-all shadow-lg hover:shadow-xl">
-                  Book Appointment
+                  {t('nav.book')}
                 </Link>
               </div>
             )}
@@ -318,7 +320,7 @@ export default function Navbar() {
               </div>
               <button type="submit"
                 className="bg-navy-DEFAULT hover:bg-[#0f2056] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all">
-                Search
+                {t('common.search')}
               </button>
               <button type="button" onClick={() => setSearchOpen(false)}
                 className="text-slate-400 hover:text-slate-600 p-2">
@@ -341,11 +343,11 @@ export default function Navbar() {
           <div className="lg:hidden border-t border-slate-100 bg-white animate-slide-down">
             <nav className="px-4 py-4 flex flex-col gap-1">
               {[
-                { to: '/', label: 'Home', end: true },
-                { to: '/hospitals', label: 'Find Hospitals' },
+                { to: '/', label: t('nav.home'), end: true },
+                { to: '/hospitals', label: t('nav.hospitals') },
                 { to: '/hospitals/map', label: 'Live Map' },
-                { to: '/ambulance', label: '🚑 Ambulance Tracker' },
-                { to: '/consult', label: '🟢 Video Consult' },
+                { to: '/ambulance', label: `🚑 ${t('nav.ambulance')}` },
+                { to: '/consult', label: `🟢 ${t('nav.consult')}` },
               ].map(link => (
                 <NavLink key={link.label} to={link.to} end={link.end}
                   className={({ isActive }) =>
@@ -371,10 +373,10 @@ export default function Navbar() {
               {!isAuthenticated && (
                 <div className="mt-3 flex gap-2">
                   <Link to="/login" className="flex-1 rounded-lg border border-slate-200 py-2.5 text-center text-sm font-medium text-slate-600">
-                    Sign In
+                    {t('nav.login')}
                   </Link>
                   <Link to="/book-appointment" className="flex-1 rounded-lg bg-[#f59e0b] py-2.5 text-center text-sm font-bold text-white">
-                    Book Now
+                    {t('nav.book')}
                   </Link>
                 </div>
               )}

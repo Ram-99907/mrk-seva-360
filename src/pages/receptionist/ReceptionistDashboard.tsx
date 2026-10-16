@@ -5,12 +5,14 @@ import ProtectedRoute from '../../components/auth/ProtectedRoute';
 import StatusBadge from '../../components/ui/StatusBadge';
 import { useAppStore } from '../../store/appStore';
 import { formatDate } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 const HOSPITAL_ID = 'h001'; // Demo receptionist manages h001
 
 function ReceptionistDashboardContent() {
   const location = useLocation();
   const { appointments, queue, updateAppointmentStatus } = useAppStore();
+  const { t } = useTranslation();
 
   const hospitalAppts = appointments.filter(a => a.hospitalId === HOSPITAL_ID);
   const pending = hospitalAppts.filter(a => a.status === 'pending');
@@ -21,11 +23,11 @@ function ReceptionistDashboardContent() {
   const recentActivity = hospitalAppts.slice(0, 5);
 
   const sidebarItems = [
-    { label: 'Overview', icon: 'LayoutDashboard' as const, href: '/receptionist/dashboard', active: location.pathname === '/receptionist/dashboard' },
-    { label: 'Appointment Requests', icon: 'ClipboardList' as const, href: '/receptionist/appointments', active: location.pathname === '/receptionist/appointments' },
-    { label: "Today's Queue", icon: 'ListOrdered' as const, href: '/receptionist/queue', active: location.pathname === '/receptionist/queue' },
-    { label: 'Notifications', icon: 'Bell' as const, href: '/receptionist/notifications', active: location.pathname === '/receptionist/notifications' },
-    { label: 'Hospital Profile', icon: 'Building2' as const, href: '/receptionist/hospital', active: location.pathname === '/receptionist/hospital' },
+    { label: t('nav.dashboard'), icon: 'LayoutDashboard' as const, href: '/receptionist/dashboard', active: location.pathname === '/receptionist/dashboard' },
+    { label: t('receptionist.requests'), icon: 'ClipboardList' as const, href: '/receptionist/appointments', active: location.pathname === '/receptionist/appointments' },
+    { label: t('receptionist.queue'), icon: 'ListOrdered' as const, href: '/receptionist/queue', active: location.pathname === '/receptionist/queue' },
+    { label: t('patient.notifications'), icon: 'Bell' as const, href: '/receptionist/notifications', active: location.pathname === '/receptionist/notifications' },
+    { label: t('receptionist.hospital'), icon: 'Building2' as const, href: '/receptionist/hospital', active: location.pathname === '/receptionist/hospital' },
   ];
 
   const handleQuickAccept = (id: string) => {
@@ -37,7 +39,7 @@ function ReceptionistDashboardContent() {
   };
 
   return (
-    <DashboardLayout sidebarItems={sidebarItems} headerTitle="Receptionist Dashboard" headerSubtitle="AIIMS Demo — Demo Hospital">
+    <DashboardLayout sidebarItems={sidebarItems} headerTitle={t('receptionist.dashboard')} headerSubtitle="AIIMS Demo — Demo Hospital">
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-navy-DEFAULT font-display">Overview</h2>
         <p className="text-medical-muted text-sm mt-1">All India Institute of Medical Sciences – Demo</p>

@@ -10,17 +10,9 @@ import DashboardLayout from '../../components/layout/DashboardLayout';
 import ProtectedRoute from '../../components/auth/ProtectedRoute';
 import { useAppStore } from '../../store/appStore';
 import { DEMO_HOSPITALS, DEMO_USERS } from '../../data/demoData';
+import { useTranslation } from 'react-i18next';
 
-const ADMIN_SIDEBAR = [
-  { label: 'Overview',         icon: 'LayoutDashboard',  href: '/admin/dashboard' },
-  { label: 'Hospital Registry',icon: 'Building2',         href: '/admin/hospitals' },
-  { label: 'User Management',  icon: 'Users',             href: '/admin/users' },
-  { label: 'All Appointments', icon: 'Calendar',          href: '/admin/appointments' },
-  { label: 'Reports & Analytics',icon: 'BarChart2',       href: '/admin/reports' },
-  { label: 'Notifications',    icon: 'Bell',              href: '/admin/notifications' },
-  { label: 'Audit Logs',       icon: 'Shield',            href: '/admin/audit' },
-  { label: 'System Settings',  icon: 'Settings',          href: '/admin/settings' },
-];
+// Sidebar items will be built inside the component with t()
 
 // ─── Stat Card ────────────────────────────────────────────────────────────────
 function StatCard({
@@ -385,11 +377,22 @@ function AdminDashboardContent() {
 }
 
 export default function AdminDashboard() {
+  const { t } = useTranslation();
+  const adminSidebar = [
+    { label: t('admin.dashboard'),    icon: 'LayoutDashboard', href: '/admin/dashboard' },
+    { label: t('admin.hospitals'),    icon: 'Building2',       href: '/admin/hospitals' },
+    { label: t('admin.users'),        icon: 'Users',           href: '/admin/users' },
+    { label: t('admin.appointments'), icon: 'Calendar',        href: '/admin/appointments' },
+    { label: t('admin.reports'),      icon: 'BarChart2',       href: '/admin/reports' },
+    { label: t('patient.notifications'), icon: 'Bell',         href: '/admin/notifications' },
+    { label: t('admin.auditLogs'),    icon: 'Shield',          href: '/admin/audit' },
+    { label: t('admin.settings'),     icon: 'Settings',        href: '/admin/settings' },
+  ];
   return (
     <ProtectedRoute requiredRole="admin">
       <DashboardLayout
-        sidebarItems={ADMIN_SIDEBAR}
-        headerTitle="Admin Dashboard"
+        sidebarItems={adminSidebar}
+        headerTitle={t('admin.dashboard')}
         headerSubtitle="MRK SEVA 360 System Overview"
       >
         <AdminDashboardContent />

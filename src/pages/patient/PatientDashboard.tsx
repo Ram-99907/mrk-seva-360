@@ -7,10 +7,12 @@ import ProtectedRoute from '../../components/auth/ProtectedRoute';
 import { useAppStore } from '../../store/appStore';
 import StatusBadge from '../../components/ui/StatusBadge';
 import { formatDate } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 function PatientDashboardContent() {
   const location = useLocation();
   const { currentUser, appointments, notifications, getUnreadCount } = useAppStore();
+  const { t } = useTranslation();
   const myAppts = appointments.filter(a => a.patientId === currentUser?.id);
   const pending = myAppts.filter(a => a.status === 'pending');
   const accepted = myAppts.filter(a => a.status === 'accepted');
@@ -20,42 +22,42 @@ function PatientDashboardContent() {
   const myNotifs = notifications.filter(n => n.userId === currentUser?.id && !n.read).slice(0, 3);
 
   const sidebarItems = [
-    { label: 'Dashboard', icon: 'LayoutDashboard' as const, href: '/patient/dashboard', active: location.pathname === '/patient/dashboard' },
-    { label: 'Find Hospitals', icon: 'Search' as const, href: '/hospitals', active: false },
-    { label: 'My Appointments', icon: 'Calendar' as const, href: '/patient/appointments', active: location.pathname === '/patient/appointments' },
-    { label: 'Notifications', icon: 'Bell' as const, href: '/patient/notifications', active: location.pathname === '/patient/notifications' },
-    { label: 'Transactions', icon: 'CreditCard' as const, href: '/patient/transactions', active: location.pathname === '/patient/transactions' },
-    { label: 'My Profile', icon: 'User' as const, href: '/patient/profile', active: location.pathname === '/patient/profile' },
+    { label: t('nav.dashboard'), icon: 'LayoutDashboard' as const, href: '/patient/dashboard', active: location.pathname === '/patient/dashboard' },
+    { label: t('nav.hospitals'), icon: 'Search' as const, href: '/hospitals', active: false },
+    { label: t('patient.myAppointments'), icon: 'Calendar' as const, href: '/patient/appointments', active: location.pathname === '/patient/appointments' },
+    { label: t('patient.notifications'), icon: 'Bell' as const, href: '/patient/notifications', active: location.pathname === '/patient/notifications' },
+    { label: t('patient.transactions'), icon: 'CreditCard' as const, href: '/patient/transactions', active: location.pathname === '/patient/transactions' },
+    { label: t('patient.profile'), icon: 'User' as const, href: '/patient/profile', active: location.pathname === '/patient/profile' },
   ];
 
   const today = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <DashboardLayout sidebarItems={sidebarItems} headerTitle="Patient Dashboard" headerSubtitle={today}>
+    <DashboardLayout sidebarItems={sidebarItems} headerTitle={t('patient.dashboard')} headerSubtitle={today}>
       {/* Welcome */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-navy-DEFAULT font-display">
-          Welcome back, {currentUser?.name?.split(' ')[0]}! 👋
+          {t('patient.welcome')}, {currentUser?.name?.split(' ')[0]}! 👋
         </h2>
         <p className="text-medical-muted mt-1">Here's an overview of your healthcare activity.</p>
       </div>
 
       {/* Quick Search */}
       <div className="card mb-8 bg-gradient-to-r from-primary-600 to-teal-600 text-white p-6">
-        <h3 className="font-semibold text-white mb-1 font-display">Find a Hospital</h3>
+        <h3 className="font-semibold text-white mb-1 font-display">{t('hero.findHospital')}</h3>
         <p className="text-white/80 text-sm mb-4">Search hospitals and book appointments</p>
         <Link to="/hospitals" className="inline-flex items-center gap-2 bg-white text-primary-600 font-semibold px-4 py-2 rounded-xl text-sm hover:bg-white/90 transition-colors">
-          <Search className="w-4 h-4" /> Search Hospitals
+          <Search className="w-4 h-4" /> {t('common.search')}
         </Link>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'Total Appointments', value: myAppts.length, color: 'text-primary-600', bg: 'bg-primary-50' },
-          { label: 'Pending', value: pending.length, color: 'text-amber-600', bg: 'bg-amber-50' },
-          { label: 'Upcoming', value: accepted.length, color: 'text-green-600', bg: 'bg-green-50' },
-          { label: 'Completed', value: completed.length, color: 'text-blue-600', bg: 'bg-blue-50' },
+          { label: t('patient.totalAppointments'), value: myAppts.length, color: 'text-primary-600', bg: 'bg-primary-50' },
+          { label: t('patient.pending'), value: pending.length, color: 'text-amber-600', bg: 'bg-amber-50' },
+          { label: t('patient.upcoming'), value: accepted.length, color: 'text-green-600', bg: 'bg-green-50' },
+          { label: t('patient.completed'), value: completed.length, color: 'text-blue-600', bg: 'bg-blue-50' },
         ].map(stat => (
           <div key={stat.label} className="card">
             <div className={`text-3xl font-bold ${stat.color} mb-1`}>{stat.value}</div>
