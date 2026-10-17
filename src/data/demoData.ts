@@ -1,4 +1,6 @@
 import type { Hospital, User, Appointment, Notification, Transaction, Review } from '../types';
+import { WORLD_HOSPITALS, WORLD_CITIES } from './worldHospitals';
+export type { Hospital, User, Appointment, Notification, Transaction, Review };
 
 // ─── Constants ─────────────────────────────────────────────────────────────
 
@@ -48,7 +50,8 @@ export const CITIES = [
   'New Delhi', 'Mumbai', 'Bengaluru', 'Hyderabad', 'Chennai',
   'Kolkata', 'Pune', 'Ahmedabad', 'Jaipur', 'Lucknow',
   'Kadapa', 'Kurnool', 'Proddatur', 'Kamalapuram', 'Rajampet',
-];
+  ...WORLD_CITIES,
+].filter((c, i, a) => a.indexOf(c) === i).sort();
 
 export const HOSPITAL_CATEGORIES = [
   { value: 'multi-specialty', label: 'Multi-Specialty' },
@@ -960,6 +963,8 @@ export const DEMO_HOSPITALS: Hospital[] = [
     description: 'Sri Sai Hospital Proddatur provides quality affordable healthcare with round-the-clock emergency and maternity services.',
     dataSource: 'HFR Private Registry', lastUpdated: '2026-10-01',
   },
+  // ─── World Hospitals (auto-merged) ──────────────────────────────────────
+  ...WORLD_HOSPITALS,
 ];
 
 // ─── Demo Users ──────────────────────────────────────────────────────────────
