@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarPlus } from 'lucide-react';
-import DemoBanner from '../ui/DemoBanner';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import AIAssistant from '../ui/AIAssistant';
@@ -23,7 +22,6 @@ export default function PageLayout({ children, showFooter = true }: PageLayoutPr
 
   return (
     <div className="min-h-screen flex flex-col bg-medical-bg">
-      <DemoBanner />
       <Navbar />
       <main className="flex-1">{children}</main>
       {showFooter && <Footer />}

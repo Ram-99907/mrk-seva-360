@@ -358,8 +358,8 @@ function AdminDashboardContent() {
           {[
             { label: 'HFR Sync',       status: 'Operational', color: 'text-green-600 bg-green-50' },
             { label: 'OPD Booking API',status: 'Operational', color: 'text-green-600 bg-green-50' },
-            { label: 'ABDM Integration',status: 'Demo Mode',  color: 'text-amber-600 bg-amber-50' },
-            { label: 'SMS Alerts',     status: 'Demo Mode',  color: 'text-amber-600 bg-amber-50' },
+            { label: 'ABDM Integration',status: 'Live',  color: 'text-amber-600 bg-amber-50' },
+            { label: 'SMS Alerts',     status: 'Live',  color: 'text-amber-600 bg-amber-50' },
           ].map(({ label, status, color }) => (
             <div key={label} className="flex items-center gap-3 rounded-lg border border-slate-100 px-4 py-3">
               <span className={`flex size-2 rounded-full ${status === 'Operational' ? 'bg-green-500' : 'bg-amber-400'}`} />

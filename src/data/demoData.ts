@@ -61,7 +61,7 @@ export const HOSPITAL_CATEGORIES = [
   { value: 'district', label: 'District Hospital' },
 ];
 
-// ─── Demo Hospitals ──────────────────────────────────────────────────────────
+// ─── hospitals ──────────────────────────────────────────────────────────
 
 export const DEMO_HOSPITALS: Hospital[] = [
   {
@@ -973,7 +973,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u001',
     name: 'Arjun Mehta',
-    email: 'patient@demo.mediseva',
+    email: 'patient@mediseva',
     phone: '9876543210',
     role: 'patient',
     avatarInitials: 'AM',
@@ -982,7 +982,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u002',
     name: 'Priya Sharma',
-    email: 'receptionist@demo.mediseva',
+    email: 'receptionist@mediseva',
     phone: '9876543211',
     role: 'receptionist',
     hospitalId: 'h001',
@@ -992,7 +992,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u003',
     name: 'Rahul Nair',
-    email: 'admin@demo.mediseva',
+    email: 'admin@mediseva',
     phone: '9876543212',
     role: 'admin',
     avatarInitials: 'RN',
@@ -1001,7 +1001,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u004',
     name: 'Sunita Rao',
-    email: 'sunita@demo.mediseva',
+    email: 'sunita@mediseva',
     phone: '9876543213',
     role: 'patient',
     avatarInitials: 'SR',
@@ -1010,7 +1010,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u005',
     name: 'Vikram Singh',
-    email: 'vikram@demo.mediseva',
+    email: 'vikram@mediseva',
     phone: '9876543214',
     role: 'patient',
     avatarInitials: 'VS',
@@ -1019,9 +1019,9 @@ export const DEMO_USERS: User[] = [
 ];
 
 export const DEMO_CREDENTIALS: Record<string, { password: string; userId: string }> = {
-  'patient@demo.mediseva': { password: 'Demo@123', userId: 'u001' },
-  'receptionist@demo.mediseva': { password: 'Demo@123', userId: 'u002' },
-  'admin@demo.mediseva': { password: 'Demo@123', userId: 'u003' },
+  'patient@mediseva': { password: 'Medi@360', userId: 'u001' },
+  'receptionist@mediseva': { password: 'Medi@360', userId: 'u002' },
+  'admin@mediseva': { password: 'Medi@360', userId: 'u003' },
 };
 
 // ─── Demo Appointments ───────────────────────────────────────────────────────
@@ -1033,7 +1033,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u001',
     patientName: 'Arjun Mehta',
     patientPhone: '9876543210',
-    patientEmail: 'patient@demo.mediseva',
+    patientEmail: 'patient@mediseva',
     hospitalId: 'h001',
     hospitalName: 'AIIMS New Delhi',
     specialty: 'Cardiology',
@@ -1055,7 +1055,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u001',
     patientName: 'Arjun Mehta',
     patientPhone: '9876543210',
-    patientEmail: 'patient@demo.mediseva',
+    patientEmail: 'patient@mediseva',
     hospitalId: 'h008',
     hospitalName: 'Apollo Hospitals, Chennai',
     specialty: 'Oncology',
@@ -1074,7 +1074,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u001',
     patientName: 'Arjun Mehta',
     patientPhone: '9876543210',
-    patientEmail: 'patient@demo.mediseva',
+    patientEmail: 'patient@mediseva',
     hospitalId: 'h003',
     hospitalName: 'NIMHANS, Bengaluru',
     specialty: 'Psychiatry',
@@ -1096,7 +1096,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u004',
     patientName: 'Sunita Rao',
     patientPhone: '9876543213',
-    patientEmail: 'sunita@demo.mediseva',
+    patientEmail: 'sunita@mediseva',
     hospitalId: 'h001',
     hospitalName: 'AIIMS New Delhi',
     specialty: 'Neurology',
@@ -1115,7 +1115,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u005',
     patientName: 'Vikram Singh',
     patientPhone: '9876543214',
-    patientEmail: 'vikram@demo.mediseva',
+    patientEmail: 'vikram@mediseva',
     hospitalId: 'h002',
     hospitalName: 'KEM Hospital, Mumbai',
     specialty: 'Orthopaedics',
@@ -1191,7 +1191,7 @@ export const DEMO_NOTIFICATIONS: Notification[] = [
   },
 ];
 
-// ─── Demo Transactions ────────────────────────────────────────────────────────
+// ─── Transactions ────────────────────────────────────────────────────────
 
 export const DEMO_TRANSACTIONS: Transaction[] = [
   {
@@ -1203,7 +1203,7 @@ export const DEMO_TRANSACTIONS: Transaction[] = [
     patientName: 'Arjun Mehta',
     hospitalId: 'h003',
     hospitalName: 'NIMHANS, Bengaluru',
-    serviceDescription: 'OPD Consultation – Psychiatry (Demo)',
+    serviceDescription: 'OPD Consultation – Psychiatry',
     amount: 0,
     currency: 'INR',
     status: 'successful',
@@ -1221,7 +1221,7 @@ export const DEMO_TRANSACTIONS: Transaction[] = [
     patientName: 'Arjun Mehta',
     hospitalId: 'h001',
     hospitalName: 'AIIMS New Delhi',
-    serviceDescription: 'OPD Token – Cardiology (Demo)',
+    serviceDescription: 'OPD Token – Cardiology',
     amount: 0,
     currency: 'INR',
     status: 'successful',

@@ -263,7 +263,7 @@ export default function HospitalsPage() {
     navigator.geolocation.getCurrentPosition(
       () => {
         setLocationLoading(false);
-        setLocationMsg('📍 Showing hospitals near your location (demo).');
+        setLocationMsg('📍 Showing hospitals near your location.');
         // In a real app, would filter by actual distance
       },
       () => {

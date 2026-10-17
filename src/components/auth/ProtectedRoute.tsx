@@ -51,7 +51,7 @@ export default function ProtectedRoute({ children, requiredRole }: ProtectedRout
               <Stethoscope size={22} />
             </div>
             <span className="text-xl font-bold text-[#102A43] tracking-tight">
-              mediseva <span className="text-[#1769AA]">360</span>
+              MEDI SEVA <span className="text-[#1769AA]">360</span>
             </span>
           </div>
 

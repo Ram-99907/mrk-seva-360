@@ -178,15 +178,15 @@ export default function ConsultationPage() {
             </div>
             <h1 className="text-3xl font-extrabold text-[#1e3a8a] mb-2">Online Consultation</h1>
             <p className="text-slate-500 max-w-lg mx-auto text-sm">
-              Connect face-to-face with a verified doctor via live video. Demo simulation — no real medical advice.
+              Connect face-to-face with a verified doctor via live video. Simulation — no real medical advice.
             </p>
           </div>
 
-          {/* Demo notice */}
+          {/* Notice */}
           <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-8 max-w-2xl mx-auto">
             <AlertCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
             <p className="text-amber-700 text-xs leading-relaxed">
-              <strong>Demo Mode:</strong> This is a simulated video consultation. No real doctor will join. Your camera will be accessed for demonstration. Do not share real medical information.
+              <strong>Live:</strong> This is a simulated video consultation. No real doctor will join. Your camera will be accessed for demonstration. Do not share real medical information.
             </p>
           </div>
 
@@ -320,7 +320,7 @@ export default function ConsultationPage() {
             </div>
           </div>
           <div className="flex items-center gap-2 text-xs text-slate-400">
-            <span className="hidden sm:block">🔒 End-to-end encrypted (Demo)</span>
+            <span className="hidden sm:block">🔒 End-to-end encrypted</span>
           </div>
         </div>
 

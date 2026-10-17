@@ -26,7 +26,7 @@ export default function HospitalsMapPage() {
           </div>
           <h1 className="text-3xl font-bold font-display">Hospital Map — India</h1>
           <p className="text-white/70 mt-2">
-            Live interactive map of all {DEMO_HOSPITALS.length} demo hospitals. Click any marker for details.
+            Live interactive map of all {DEMO_HOSPITALS.length} hospitals. Click any marker for details.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 mt-5">

@@ -9,8 +9,8 @@ import { useAppStore } from '../../store/appStore';
 const DEMO_ROLES = [
   {
     role: 'Patient',
-    email: 'patient@demo.mediseva',
-    password: 'Demo@123',
+    email: 'patient@mediseva',
+    password: 'Medi@360',
     icon: User,
     color: 'border-[#1e3a8a]/30 bg-[#1e3a8a]/5 hover:border-[#1e3a8a]/60',
     iconColor: 'text-[#1e3a8a] bg-[#1e3a8a]/10',
@@ -18,8 +18,8 @@ const DEMO_ROLES = [
   },
   {
     role: 'Receptionist',
-    email: 'receptionist@demo.mediseva',
-    password: 'Demo@123',
+    email: 'receptionist@mediseva',
+    password: 'Medi@360',
     icon: Stethoscope,
     color: 'border-[#0d9488]/30 bg-[#0d9488]/5 hover:border-[#0d9488]/60',
     iconColor: 'text-[#0d9488] bg-[#0d9488]/10',
@@ -27,8 +27,8 @@ const DEMO_ROLES = [
   },
   {
     role: 'Admin',
-    email: 'admin@demo.mediseva',
-    password: 'Demo@123',
+    email: 'admin@mediseva',
+    password: 'Medi@360',
     icon: ShieldCheck,
     color: 'border-red-200 bg-red-50/50 hover:border-red-400',
     iconColor: 'text-red-600 bg-red-100',
@@ -89,7 +89,7 @@ export default function LoginPage() {
             <rect x="20" y="20" width="4" height="4" rx="1" fill="#0d9488" />
           </svg>
           <div>
-            <p className="text-lg font-extrabold tracking-tight">mediseva <span className="text-[#0d9488]">360</span></p>
+            <p className="text-lg font-extrabold tracking-tight">MEDI SEVA <span className="text-[#0d9488]">360</span></p>
             <p className="text-xs text-white/60">Pan-India Healthcare Portal</p>
           </div>
         </Link>
@@ -141,7 +141,7 @@ export default function LoginPage() {
           {/* Mobile logo */}
           <Link to="/" className="flex items-center gap-2 mb-8 lg:hidden">
             <HeartPulse className="size-6 text-[#1e3a8a]" />
-            <span className="text-lg font-extrabold text-[#1e3a8a]">mediseva <span className="text-[#0d9488]">360</span></span>
+            <span className="text-lg font-extrabold text-[#1e3a8a]">MEDI SEVA <span className="text-[#0d9488]">360</span></span>
           </Link>
 
           <h2 className="text-2xl font-extrabold text-[#1e3a8a] mb-1">Welcome back</h2>
@@ -193,7 +193,7 @@ export default function LoginPage() {
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="text-xs font-semibold text-slate-600">Password</label>
                 <button type="button" className="text-xs text-[#0d9488] hover:underline" tabIndex={-1}
-                  onClick={() => alert('Demo mode — use the credentials above')}>
+                  onClick={() => alert('Live — use the credentials above')}>
                   Forgot password?
                 </button>
               </div>
@@ -257,9 +257,9 @@ export default function LoginPage() {
             </Link>
           </div>
 
-          {/* Demo notice */}
+          {/* Notice */}
           <div className="mt-6 rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-xs text-amber-700 text-center">
-            🧪 <strong>Demo Mode</strong> — No real data is stored or transmitted.
+            🧪 <strong>Live</strong> — No real data is stored or transmitted.
           </div>
         </div>
       </div>

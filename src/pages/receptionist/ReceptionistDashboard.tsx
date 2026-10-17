@@ -7,7 +7,7 @@ import { useAppStore } from '../../store/appStore';
 import { formatDate } from '../../utils/helpers';
 import { useTranslation } from 'react-i18next';
 
-const HOSPITAL_ID = 'h001'; // Demo receptionist manages h001
+const HOSPITAL_ID = 'h001'; // Receptionist manages h001
 
 function ReceptionistDashboardContent() {
   const location = useLocation();
@@ -31,21 +31,19 @@ function ReceptionistDashboardContent() {
   ];
 
   const handleQuickAccept = (id: string) => {
-    updateAppointmentStatus(id, 'accepted', 'Accepted by receptionist', 'Demo Receptionist');
+    updateAppointmentStatus(id, 'accepted', 'Accepted by receptionist', 'Receptionist');
   };
 
   const handleQuickReject = (id: string) => {
-    updateAppointmentStatus(id, 'rejected', 'Rejected — capacity full (demo)', 'Demo Receptionist');
+    updateAppointmentStatus(id, 'rejected', 'Rejected — capacity full', 'Receptionist');
   };
 
   return (
-    <DashboardLayout sidebarItems={sidebarItems} headerTitle={t('receptionist.dashboard')} headerSubtitle="AIIMS Demo — Demo Hospital">
+    <DashboardLayout sidebarItems={sidebarItems} headerTitle={t('receptionist.dashboard')} headerSubtitle="AIIMS Hospital — hospital">
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-navy-DEFAULT font-display">Overview</h2>
         <p className="text-medical-muted text-sm mt-1">All India Institute of Medical Sciences – Demo</p>
-        <div className="demo-banner mt-3">
-          🧪 All data shown is <strong>fictional demo content</strong>. Not connected to a real hospital.
-        </div>
+        
       </div>
 
       {/* Stats */}

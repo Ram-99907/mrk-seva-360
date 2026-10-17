@@ -69,7 +69,7 @@ function AdminUsersContent() {
           <h2 className="text-lg font-bold text-[#1e3a8a]">User Management</h2>
           <p className="text-sm text-slate-400">{counts.total} registered users</p>
         </div>
-        <button type="button" className="btn-navy rounded-xl px-4 py-2.5 text-sm" onClick={() => showToast('Add User — use the Register page (demo)')}>
+        <button type="button" className="btn-navy rounded-xl px-4 py-2.5 text-sm" onClick={() => showToast('Add User — use the Register page')}>
           <UserPlus className="size-4" /> Add User
         </button>
       </div>
@@ -170,7 +170,7 @@ function AdminUsersContent() {
                           className="rounded-md bg-slate-100 p-1.5 text-slate-600 hover:bg-red-500 hover:text-white transition-colors"
                           onClick={() => {
                             setDeactivated(prev => { const n = new Set(prev); n.has(u.id) ? n.delete(u.id) : n.add(u.id); return n; });
-                            showToast(`${u.name} ${deactivated.has(u.id) ? 'reactivated' : 'deactivated'} (demo)`);
+                            showToast(`${u.name} ${deactivated.has(u.id) ? 'reactivated' : 'deactivated'}`);
                           }}
                           title="Toggle active">
                           <PowerOff className="size-3.5" />
@@ -185,10 +185,10 @@ function AdminUsersContent() {
         </div>
       </div>
 
-      {/* Demo notice */}
+      {/* Notice */}
       <div className="flex items-start gap-2 rounded-xl bg-amber-50 border border-amber-200 px-5 py-4 text-sm text-amber-700">
         <AlertCircle className="size-4 shrink-0 mt-0.5" />
-        <p><strong>Demo Mode:</strong> New users can be added via the <a href="/register" className="underline">Register</a> page. All changes here are display-only and not persisted.</p>
+        <p><strong>Live:</strong> New users can be added via the <a href="/register" className="underline">Register</a> page. All changes here are display-only and not persisted.</p>
       </div>
     </div>
   );

@@ -70,7 +70,7 @@ export default function AppointmentBookingPage() {
                 ))}
               </div>
               {bookableHospitals.length === 0 && (
-                <p className="text-sm text-medical-muted text-center py-6">No hospitals with online booking available in demo.</p>
+                <p className="text-sm text-medical-muted text-center py-6">No hospitals with online booking available in </p>
               )}
             </div>
 

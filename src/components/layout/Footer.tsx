@@ -280,16 +280,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Demo Credentials */}
+          {/* credentials */}
           <div>
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[#fbbf24]">
-              Demo Credentials
+              credentials
             </p>
             <div className="flex flex-col gap-1.5 rounded-xl border border-white/10 bg-white/5 p-3 text-xs">
               {[
-                { role: 'Patient',        email: 'patient@demo.mediseva',      pass: 'Demo@123' },
-                { role: 'Receptionist',   email: 'receptionist@demo.mediseva', pass: 'Demo@123' },
-                { role: 'Admin',          email: 'admin@demo.mediseva',         pass: 'Demo@123' },
+                { role: 'Patient',        email: 'patient@mediseva',      pass: 'Medi@360' },
+                { role: 'Receptionist',   email: 'receptionist@mediseva', pass: 'Medi@360' },
+                { role: 'Admin',          email: 'admin@mediseva',         pass: 'Medi@360' },
               ].map(c => (
                 <div key={c.role} className="flex items-center gap-2 border-b border-white/10 pb-1.5 last:border-0 last:pb-0">
                   <span className="w-20 font-semibold text-white shrink-0">{c.role}</span>
@@ -309,7 +309,7 @@ export default function Footer() {
             <p>© {new Date().getFullYear()} MEDI SEVA 360. All rights reserved.</p>
             <p>
               All data shown is{' '}
-              <strong className="font-semibold text-white/60">fictional demo data</strong>{' '}
+              <strong className="font-semibold text-white/60">fictional VERIFIED</strong>{' '}
               — not connected to real hospitals or real patients.
             </p>
           </div>

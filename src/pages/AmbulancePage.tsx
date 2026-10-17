@@ -76,7 +76,7 @@ export default function AmbulancePage() {
               </div>
               <div>
                 <h1 className="text-white font-bold text-lg leading-none">Live Ambulance Tracker</h1>
-                <p className="text-slate-400 text-xs">Kadapa &amp; Proddatur District — Demo simulation</p>
+                <p className="text-slate-400 text-xs">Kadapa &amp; Proddatur District — Simulation</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -100,11 +100,11 @@ export default function AmbulancePage() {
 
         <div className="max-w-7xl mx-auto px-4 py-5 space-y-5">
 
-          {/* ── Demo notice ───────────────────────────────────────────── */}
+          {/* ── Notice ───────────────────────────────────────────── */}
           <div className="flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-xl px-4 py-2.5">
             <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0" />
             <p className="text-amber-300 text-xs">
-              <strong>Demo Simulation:</strong> Ambulance positions and movements are simulated. This is not a real dispatch system. For real emergencies, call <strong>108</strong>.
+              <strong>Simulation:</strong> Ambulance positions and movements are simulated. This is not a real dispatch system. For real emergencies, call <strong>108</strong>.
             </p>
           </div>
 

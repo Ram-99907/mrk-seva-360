@@ -1012,7 +1012,7 @@ export default function HomePage() {
                   </div>
                 </a>
               </div>
-              <p className="text-white/40 text-xs mt-4">🧪 Demo mode — app links are illustrative only</p>
+              <p className="text-white/40 text-xs mt-4">🧪 Live — app links are illustrative only</p>
             </div>
             <div className="relative flex justify-center">
               <div className="relative w-64">
@@ -1049,7 +1049,7 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-teal-50 text-teal-600 text-xs font-bold px-3 py-1.5 rounded-full mb-5">
-            <span className="live-dot bg-teal-500" /> Free to Use · Demo Mode Active
+            <span className="live-dot bg-teal-500" /> Free to Use · Live Active
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-navy-DEFAULT font-display mb-4">
             Ready to Experience Better Healthcare?

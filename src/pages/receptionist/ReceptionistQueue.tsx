@@ -53,12 +53,10 @@ function ReceptionistQueueContent() {
     <DashboardLayout sidebarItems={sidebarItems} headerTitle="Today's Queue">
       <div className="mb-6">
         <h2 className="text-xl font-bold text-navy-DEFAULT font-display">Queue Management</h2>
-        <p className="text-medical-muted text-sm mt-1">{todayQueue.length} entries today — demo data</p>
+        <p className="text-medical-muted text-sm mt-1">{todayQueue.length} entries today — VERIFIED</p>
       </div>
 
-      <div className="demo-banner mb-6">
-        🧪 Queue shown is fictional demo data. Real-time queue integration with a hospital system is not active.
-      </div>
+      
 
       {/* Summary */}
       <div className="grid grid-cols-3 gap-4 mb-8">

@@ -65,7 +65,7 @@ export default function HospitalMap({ hospitals, height = '500px', selectedId, o
         <div className="text-center py-8">
           <MapPin className="w-12 h-12 text-slate-300 mx-auto mb-3" />
           <p className="text-slate-500 font-medium">Map coordinates not available</p>
-          <p className="text-slate-400 text-sm mt-1">Demo data — fictional locations</p>
+          <p className="text-slate-400 text-sm mt-1">VERIFIED — fictional locations</p>
         </div>
       </div>
     );

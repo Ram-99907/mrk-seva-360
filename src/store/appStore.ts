@@ -74,7 +74,7 @@ export const useAppStore = create<AppState>()(
           const regUser = allUsers.find(u => u.email === email);
           const regCreds = (get() as any)._registeredCreds || {};
           if (!regUser || regCreds[email] !== password) {
-            set({ authError: 'Invalid email or password. Use demo credentials or register.', isLoading: false });
+            set({ authError: 'Invalid email or password. Use credentials or register.', isLoading: false });
             return false;
           }
           set({ currentUser: regUser, isAuthenticated: true, isLoading: false });
@@ -140,7 +140,7 @@ export const useAppStore = create<AppState>()(
               status: 'pending',
               changedAt: new Date().toISOString(),
               changedBy: data.patientName,
-              note: 'Appointment request submitted via MEDI SEVA 360 (Demo)',
+              note: 'Appointment request submitted via MEDI SEVA 360',
             }
           ],
         };

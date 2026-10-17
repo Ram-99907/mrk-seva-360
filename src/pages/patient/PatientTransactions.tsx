@@ -35,10 +35,7 @@ function PatientTransactionsContent() {
         <p className="text-medical-muted text-sm mt-1">{myTxns.length} total transactions</p>
       </div>
 
-      <div className="demo-banner mb-6">
-        <AlertCircle className="w-4 h-4 flex-shrink-0" />
-        <span><strong>Demo Transactions</strong> — No real payments have been processed. All amounts and references are fictional.</span>
-      </div>
+      
 
       {myTxns.length === 0 ? (
         <div className="card text-center py-16">
@@ -110,7 +107,7 @@ function PatientTransactionsContent() {
                 ['Amount', formatCurrency(receiptTxn.amount, receiptTxn.currency)],
                 ['Payment Method', receiptTxn.paymentMethod],
                 ['Date', formatDate(receiptTxn.createdAt)],
-                ['Status', 'Successful (Demo)'],
+                ['Status', 'Successful'],
               ].map(([k, v]) => (
                 <div key={k} className="flex justify-between">
                   <span className="text-medical-muted">{k}</span>

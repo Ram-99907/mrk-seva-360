@@ -160,7 +160,7 @@ function HospitalModal({
             </label>
           </div>
 
-          {/* Demo Notice */}
+          {/* Notice */}
           <div className="flex items-start gap-2 rounded-lg bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-700">
             <AlertCircle className="size-4 shrink-0 mt-0.5" />
             <p>This is a <strong>demo</strong> operation. Changes are stored locally and will not persist on page refresh.</p>
@@ -221,7 +221,7 @@ function AdminHospitalsContent() {
         lastUpdated: new Date().toISOString().split('T')[0],
       } as Hospital;
       setLocalHospitals(prev => [newH, ...prev]);
-      showToast(`✅ ${data.name} added successfully (demo)`);
+      showToast(`✅ ${data.name} added successfully`);
     }
     setEditTarget(null);
   };
@@ -375,7 +375,7 @@ function AdminHospitalsContent() {
                               next.has(h.id) ? next.delete(h.id) : next.add(h.id);
                               return next;
                             });
-                            showToast(`${h.name} ${deactivated.has(h.id) ? 'reactivated' : 'deactivated'} (demo)`);
+                            showToast(`${h.name} ${deactivated.has(h.id) ? 'reactivated' : 'deactivated'}`);
                           }}
                           className="rounded-md bg-slate-100 p-1.5 text-slate-600 hover:bg-red-500 hover:text-white transition-colors"
                           title="Toggle active"

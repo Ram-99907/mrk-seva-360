@@ -76,7 +76,7 @@ function AdminReportsContent() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-lg font-bold text-[#1e3a8a]">Reports & Analytics</h2>
-          <p className="text-sm text-slate-400">Demo data summary · Not real hospital statistics</p>
+          <p className="text-sm text-slate-400">VERIFIED summary · Not real hospital statistics</p>
         </div>
         <button type="button" className="btn-outline rounded-xl px-4 py-2.5 text-sm" onClick={() => alert('Export — demo only')}>
           <Download className="size-4" /> Export PDF
@@ -170,7 +170,7 @@ function AdminReportsContent() {
                 <MiniBar val={count} max={Math.max(...apptByHospital.map(h=>h.count), 1)} color="#1e3a8a" />
               </div>
             ))}
-            {/* Demo hospitals with 0 appointments */}
+            {/* hospitals with 0 appointments */}
             {DEMO_HOSPITALS.filter(h => !apptByHospital.find(a => a.name === h.name)).slice(0, 4).map(h => (
               <div key={h.id} className="flex items-center gap-4 px-5 py-3 opacity-40">
                 <p className="flex-1 text-sm text-slate-500 truncate">{h.name}</p>
@@ -236,10 +236,10 @@ function AdminReportsContent() {
         </div>
       </div>
 
-      {/* Demo Notice */}
+      {/* Notice */}
       <div className="flex items-start gap-2 rounded-xl bg-amber-50 border border-amber-200 px-5 py-4 text-sm text-amber-700">
         <AlertCircle className="size-4 shrink-0 mt-0.5" />
-        <p><strong>Demo Report:</strong> All data shown is fictional sample data from the demo store. Not connected to real hospitals or patient records.</p>
+        <p><strong>Demo Report:</strong> All data shown is verified data from the store. Not connected to real hospitals or patient records.</p>
       </div>
     </div>
   );

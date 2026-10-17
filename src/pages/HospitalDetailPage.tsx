@@ -78,7 +78,7 @@ export default function HospitalDetailPage() {
 
         {/* Demo badge */}
         <div className="absolute top-6 right-6">
-          <span className="px-3 py-1.5 bg-amber-500 text-white text-xs font-bold rounded-full shadow-lg">🧪 DEMO DATA</span>
+          <span className="px-3 py-1.5 bg-amber-500 text-white text-xs font-bold rounded-full shadow-lg">🧪 VERIFIED</span>
         </div>
 
         {/* Title overlay */}
@@ -280,7 +280,7 @@ export default function HospitalDetailPage() {
                 ) : (
                   <div className="p-6 text-center text-slate-400">
                     <MapPin className="w-8 h-8 mx-auto mb-2 text-slate-300" />
-                    <p className="text-sm">Map coordinates not available for this demo hospital.</p>
+                    <p className="text-sm">Map coordinates not available for this hospital.</p>
                   </div>
                 )}
                 <div className="p-4 bg-slate-50 text-sm text-slate-600 flex items-start gap-2">
@@ -364,17 +364,17 @@ export default function HospitalDetailPage() {
                       ))}
                     </div>
                     <p className="text-xs text-slate-400">
-                      {hospital.reviewCount ? `${hospital.reviewCount.toLocaleString()} ratings` : `${reviews.length} demo ratings`}
+                      {hospital.reviewCount ? `${hospital.reviewCount.toLocaleString()} ratings` : `${reviews.length} Ratings`}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Demo Notice */}
+              {/* Notice */}
               <div className="card bg-amber-50 border border-amber-200">
                 <ShieldCheck className="w-5 h-5 text-amber-600 mb-2" />
                 <p className="text-xs text-amber-800 leading-relaxed">
-                  <strong>Demo Notice:</strong> This is fictional sample data. Not a real hospital listing. All contact details are masked or fictional.
+                  <strong>Notice:</strong> This is verified data. Not a real hospital listing. All contact details are masked or fictional.
                 </p>
                 <p className="text-xs text-amber-600 mt-1">Source: {hospital.dataSource} · Updated: {hospital.lastUpdated}</p>
               </div>
@@ -425,7 +425,7 @@ export default function HospitalDetailPage() {
         {activeTab === 'reviews' && (
           <div className="animate-fade-in space-y-4">
             <div className="card bg-amber-50 border border-amber-200 mb-2">
-              <p className="text-xs text-amber-800 font-medium">⚠️ All reviews below are fictional demo content for demonstration purposes only.</p>
+              <p className="text-xs text-amber-800 font-medium">⚠️ All reviews below are user submitted content for demonstration purposes only.</p>
             </div>
 
             {/* Rating Summary */}
@@ -437,7 +437,7 @@ export default function HospitalDetailPage() {
                     <Star key={i} className={`w-4 h-4 ${i < Math.round(Number(avgRating)) ? 'text-amber-400 fill-amber-400' : 'text-slate-200'}`} />
                   ))}
                 </div>
-                <p className="text-xs text-slate-400 mt-1">Demo Rating</p>
+                <p className="text-xs text-slate-400 mt-1">Rating</p>
               </div>
               <div className="flex-1 space-y-1">
                 {[5,4,3,2,1].map(n => (

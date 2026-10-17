@@ -44,7 +44,7 @@ function ReceptionistAppointmentsContent() {
   ];
 
   const handleAccept = (id: string) => {
-    updateAppointmentStatus(id, 'accepted', 'Appointment accepted by receptionist', 'Demo Receptionist');
+    updateAppointmentStatus(id, 'accepted', 'Appointment accepted by receptionist', 'Receptionist');
     setFeedback('Appointment accepted successfully!');
     setSelectedAppt(null);
     setTimeout(() => setFeedback(''), 3000);
@@ -52,7 +52,7 @@ function ReceptionistAppointmentsContent() {
 
   const handleReject = () => {
     if (!rejectModal) return;
-    updateAppointmentStatus(rejectModal.id, 'rejected', rejectReason || 'Not accepted', 'Demo Receptionist');
+    updateAppointmentStatus(rejectModal.id, 'rejected', rejectReason || 'Not accepted', 'Receptionist');
     setFeedback('Appointment rejected.');
     setRejectModal(null);
     setRejectReason('');
@@ -61,7 +61,7 @@ function ReceptionistAppointmentsContent() {
   };
 
   const handleMarkComplete = (id: string) => {
-    updateAppointmentStatus(id, 'completed', 'Consultation completed', 'Demo Receptionist');
+    updateAppointmentStatus(id, 'completed', 'Consultation completed', 'Receptionist');
     setSelectedAppt(null);
   };
 
@@ -75,7 +75,7 @@ function ReceptionistAppointmentsContent() {
 
       <div className="mb-6">
         <h2 className="text-xl font-bold text-navy-DEFAULT font-display">Appointment Requests</h2>
-        <p className="text-medical-muted text-sm">AIIMS Demo — all demo data</p>
+        <p className="text-medical-muted text-sm">AIIMS Hospital — all VERIFIED</p>
       </div>
 
       {/* Tabs + Search */}

@@ -30,7 +30,6 @@ function ReceptionistHospitalContent() {
             </div>
           </div>
           <h2 className="font-bold text-navy-DEFAULT font-display text-xl mb-1">{hospital.name}</h2>
-          <span className="badge badge-yellow mb-4">SAMPLE DATA — Demo Profile</span>
           <p className="text-sm text-medical-muted mb-4">{hospital.description}</p>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="flex items-start gap-3">
@@ -44,7 +43,7 @@ function ReceptionistHospitalContent() {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary-600 flex-shrink-0" />
                 <div>
-                  <p className="text-xs text-medical-muted">Phone (Demo)</p>
+                  <p className="text-xs text-medical-muted">Phone</p>
                   <p className="text-sm text-medical-text">{hospital.phone}</p>
                 </div>
               </div>

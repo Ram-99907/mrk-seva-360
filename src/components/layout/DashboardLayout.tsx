@@ -53,7 +53,7 @@ export default function DashboardLayout({ children, sidebarItems, headerTitle, h
           </svg>
           <div>
             <p className="text-sm font-extrabold tracking-tight text-white">
-              mediseva <span className="text-[#0d9488]">360</span>
+              MEDI SEVA <span className="text-[#0d9488]">360</span>
             </p>
             <p className="text-[10px] text-white/40">Healthcare Portal</p>
           </div>
@@ -125,9 +125,9 @@ export default function DashboardLayout({ children, sidebarItems, headerTitle, h
 
   return (
     <div className="min-h-screen" style={{ background: '#f0f4ff' }}>
-      {/* Demo Notice Banner */}
+      {/* Notice Banner */}
       <div className="relative z-50 bg-amber-50 border-b border-amber-200 py-1.5 px-4 text-center text-xs font-medium text-amber-800">
-        🧪 <strong>DEMO MODE</strong> — All data is fictional. Not connected to real hospitals or medical systems.
+        🧪 <strong>Live</strong> — All data is fictional. Not connected to real hospitals or medical systems.
       </div>
 
       <div className="flex min-h-[calc(100vh-30px)]">

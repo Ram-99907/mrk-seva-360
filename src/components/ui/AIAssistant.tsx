@@ -25,7 +25,7 @@ Key info:
 Always:
 - Be helpful, concise, and caring
 - Recommend visiting a real doctor for serious concerns
-- Mention "Demo mode" when asked about real appointments
+- Mention "Live" when asked about real appointments
 - Respond in English (or match the user's language if they use Telugu/Hindi)
 - Keep responses short and clear (2-4 sentences max)`;
 

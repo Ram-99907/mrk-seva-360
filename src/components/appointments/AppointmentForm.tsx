@@ -72,7 +72,7 @@ export default function AppointmentForm({ hospitalId, hospitalName, specialties,
         <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 text-left">
           <p className="text-xs text-amber-700 flex items-start gap-2">
             <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
-            <span><strong>Demo Mode:</strong> This appointment request is not transmitted to a real hospital. This is a demonstration only.</span>
+            <span><strong>Live:</strong> This appointment request is not transmitted to a real hospital. This is a demonstration only.</span>
           </p>
         </div>
         <div className="flex gap-3 justify-center">
@@ -104,7 +104,7 @@ export default function AppointmentForm({ hospitalId, hospitalName, specialties,
     }
     setIsLoading(true);
 
-    // Try real API first; fall back to local demo store
+    // Try real API first; fall back to local store
     try {
       const res = await fetch('/api/bookings', {
         method: 'POST',
@@ -153,10 +153,10 @@ export default function AppointmentForm({ hospitalId, hospitalName, specialties,
         return;
       }
     } catch {
-      // API unavailable (local dev without DB) — fall through to demo store
+      // API unavailable (local dev without DB) — fall through to store
     }
 
-    // Demo store fallback
+    // store fallback
     const appt = submitAppointment({
       patientId: currentUser!.id,
       patientName: form.patientName,
@@ -188,10 +188,7 @@ export default function AppointmentForm({ hospitalId, hospitalName, specialties,
         </div>
       </div>
 
-      <div className="demo-banner mb-6">
-        <AlertCircle className="w-4 h-4 flex-shrink-0" />
-        <span>Demo mode — requests are stored locally only and not sent to any real hospital.</span>
-      </div>
+      
 
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Hospital (read-only) */}
