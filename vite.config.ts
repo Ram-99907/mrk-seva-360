@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icons.svg', 'pwa-icon.svg'],
+      includeAssets: ['favicon.svg', 'icons.svg', 'pwa-icon.svg', 'logo.jpg'],
       manifest: {
         name: 'MEDI SEVA 360 — Healthcare Portal',
         short_name: 'MEDI SEVA 360',
@@ -22,16 +22,22 @@ export default defineConfig({
         categories: ['health', 'medical'],
         icons: [
           {
-            src: '/pwa-icon.svg',
-            sizes: 'any',
-            type: 'image/svg+xml',
+            src: '/logo.jpg',
+            sizes: '512x512',
+            type: 'image/jpeg',
             purpose: 'any',
+          },
+          {
+            src: '/logo.jpg',
+            sizes: '512x512',
+            type: 'image/jpeg',
+            purpose: 'maskable',
           },
           {
             src: '/pwa-icon.svg',
             sizes: 'any',
             type: 'image/svg+xml',
-            purpose: 'maskable',
+            purpose: 'any',
           },
         ],
       },

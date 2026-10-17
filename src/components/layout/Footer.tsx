@@ -144,12 +144,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-3 mb-4">
-              <svg viewBox="0 0 44 44" className="size-11 shrink-0" aria-hidden="true">
-                <rect width="44" height="44" rx="10" fill="#1e3a8a" />
-                <rect x="17" y="9"  width="10" height="26" rx="2.5" fill="#ffffff" />
-                <rect x="9"  y="17" width="26" height="10" rx="2.5" fill="#ffffff" />
-                <rect x="20" y="20" width="4"  height="4"  rx="1"   fill="#0d9488" />
-              </svg>
+              <img src="/logo.jpg" alt="Mediseva360" className="size-11 shrink-0 rounded-lg object-contain" />
               <div>
                 <p className="text-lg font-extrabold tracking-tight leading-tight">
                   MEDI SEVA <span className="text-[#0d9488]">360</span>

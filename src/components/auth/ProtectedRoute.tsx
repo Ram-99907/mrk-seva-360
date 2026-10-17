@@ -47,9 +47,7 @@ export default function ProtectedRoute({ children, requiredRole }: ProtectedRout
         <div className="w-full max-w-md text-center">
           {/* Logo strip */}
           <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="bg-[#1769AA] text-white p-2 rounded-xl">
-              <Stethoscope size={22} />
-            </div>
+            <img src="/logo.jpg" alt="Mediseva360" className="size-10 rounded-lg object-contain" />
             <span className="text-xl font-bold text-[#102A43] tracking-tight">
               MEDI SEVA <span className="text-[#1769AA]">360</span>
             </span>

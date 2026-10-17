@@ -82,12 +82,7 @@ export default function LoginPage() {
 
         {/* Logo */}
         <Link to="/" className="relative flex items-center gap-3">
-          <svg viewBox="0 0 44 44" className="size-11 shrink-0" aria-hidden="true">
-            <rect width="44" height="44" rx="10" fill="rgba(255,255,255,0.15)" />
-            <rect x="17" y="9" width="10" height="26" rx="2.5" fill="#ffffff" />
-            <rect x="9" y="17" width="26" height="10" rx="2.5" fill="#ffffff" />
-            <rect x="20" y="20" width="4" height="4" rx="1" fill="#0d9488" />
-          </svg>
+          <img src="/logo.jpg" alt="Mediseva360" className="size-10 shrink-0 rounded-lg object-contain" />
           <div>
             <p className="text-lg font-extrabold tracking-tight">MEDI SEVA <span className="text-[#0d9488]">360</span></p>
             <p className="text-xs text-white/60">Pan-India Healthcare Portal</p>
@@ -140,17 +135,17 @@ export default function LoginPage() {
 
           {/* Mobile logo */}
           <Link to="/" className="flex items-center gap-2 mb-8 lg:hidden">
-            <HeartPulse className="size-6 text-[#1e3a8a]" />
+            <img src="/logo.jpg" alt="Mediseva360" className="size-8 rounded-lg object-contain" />
             <span className="text-lg font-extrabold text-[#1e3a8a]">MEDI SEVA <span className="text-[#0d9488]">360</span></span>
           </Link>
 
           <h2 className="text-2xl font-extrabold text-[#1e3a8a] mb-1">Welcome back</h2>
           <p className="text-sm text-slate-500 mb-6">Sign in to your portal</p>
 
-          {/* Demo Role Quick-fill */}
+          {/* Quick Login */}
           <div className="mb-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
-              🧪 Demo — Click to auto-fill credentials
+              Quick Login — Select a role
             </p>
             <div className="grid gap-2">
               {DEMO_ROLES.map(({ role, email: e, password: p, icon: Icon, color, iconColor, desc }) => (

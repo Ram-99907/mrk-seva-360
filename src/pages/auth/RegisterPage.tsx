@@ -105,9 +105,7 @@ export default function RegisterPage() {
         {/* Top — Logo */}
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <HeartPulse className="w-6 h-6 text-white" />
-            </div>
+            <img src="/logo.jpg" alt="Mediseva360" className="w-10 h-10 rounded-xl object-contain" />
             <div>
               <span className="text-white font-black text-xl font-display tracking-tight">MEDI SEVA <span className="text-amber-400">360</span></span>
               <p className="text-white/60 text-xs">भारत स्वास्थ्य पोर्टल</p>
@@ -162,9 +160,7 @@ export default function RegisterPage() {
 
           {/* Mobile logo */}
           <div className="flex items-center gap-3 mb-8 lg:hidden">
-            <div className="w-10 h-10 bg-navy-DEFAULT rounded-xl flex items-center justify-center">
-              <HeartPulse className="w-6 h-6 text-white" />
-            </div>
+            <img src="/logo.jpg" alt="Mediseva360" className="w-10 h-10 rounded-xl object-contain" />
             <span className="text-navy-DEFAULT font-black text-xl font-display">MEDI SEVA <span className="text-teal-600">360</span></span>
           </div>
 
