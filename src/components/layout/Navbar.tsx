@@ -123,7 +123,7 @@ export default function Navbar() {
             </svg>
             <div className="min-w-0">
               <p className={`text-base font-extrabold tracking-tight leading-tight sm:text-lg transition-colors ${logoColor}`}>
-                MRK SEVA <span className="text-[#0d9488]">360</span>
+                MEDI SEVA <span className="text-[#0d9488]">360</span>
               </p>
               <p className={`hidden text-[10px] sm:block leading-tight transition-colors ${logoSub}`}>
                 Pan-India Healthcare Portal

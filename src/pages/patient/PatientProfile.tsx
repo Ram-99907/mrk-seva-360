@@ -130,7 +130,7 @@ function PatientProfileContent() {
           </div>
           <div className="space-y-3">
             {[
-              'I consent to my appointment data being managed by MRK SEVA 360 (Demo)',
+              'I consent to my appointment data being managed by MEDI SEVA 360 (Demo)',
               'I understand this is a demonstration platform with fictional data',
               'I have read and understood the Privacy Notice',
             ].map(text => (

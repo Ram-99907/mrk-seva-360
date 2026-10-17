@@ -78,7 +78,7 @@ const COLS = [
   {
     heading: 'About',
     links: [
-      { label: 'About MRK SEVA 360',   to: '/' },
+      { label: 'About MEDI SEVA 360',   to: '/' },
       { label: 'Admin Portal',         to: '/admin/dashboard' },
       { label: 'Receptionist Portal',  to: '/receptionist/dashboard' },
       { label: 'Privacy Policy',       to: '/privacy' },
@@ -152,7 +152,7 @@ export default function Footer() {
               </svg>
               <div>
                 <p className="text-lg font-extrabold tracking-tight leading-tight">
-                  MRK SEVA <span className="text-[#0d9488]">360</span>
+                  MEDI SEVA <span className="text-[#0d9488]">360</span>
                 </p>
                 <p className="text-[11px] text-white/50 font-medium">Pan-India Healthcare Portal</p>
               </div>
@@ -287,9 +287,9 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-1.5 rounded-xl border border-white/10 bg-white/5 p-3 text-xs">
               {[
-                { role: 'Patient',        email: 'patient@demo.mrkseva',      pass: 'Demo@123' },
-                { role: 'Receptionist',   email: 'receptionist@demo.mrkseva', pass: 'Demo@123' },
-                { role: 'Admin',          email: 'admin@demo.mrkseva',         pass: 'Demo@123' },
+                { role: 'Patient',        email: 'patient@demo.mediseva',      pass: 'Demo@123' },
+                { role: 'Receptionist',   email: 'receptionist@demo.mediseva', pass: 'Demo@123' },
+                { role: 'Admin',          email: 'admin@demo.mediseva',         pass: 'Demo@123' },
               ].map(c => (
                 <div key={c.role} className="flex items-center gap-2 border-b border-white/10 pb-1.5 last:border-0 last:pb-0">
                   <span className="w-20 font-semibold text-white shrink-0">{c.role}</span>
@@ -306,7 +306,7 @@ export default function Footer() {
       <div className="border-t border-white/10 py-5">
         <div className="mx-auto max-w-7xl px-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-xs text-white/40">
           <div className="flex flex-col gap-1">
-            <p>© {new Date().getFullYear()} MRK SEVA 360. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} MEDI SEVA 360. All rights reserved.</p>
             <p>
               All data shown is{' '}
               <strong className="font-semibold text-white/60">fictional demo data</strong>{' '}

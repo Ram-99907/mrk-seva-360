@@ -109,7 +109,7 @@ export default function RegisterPage() {
               <HeartPulse className="w-6 h-6 text-white" />
             </div>
             <div>
-              <span className="text-white font-black text-xl font-display tracking-tight">mrkseva <span className="text-amber-400">360</span></span>
+              <span className="text-white font-black text-xl font-display tracking-tight">mediseva <span className="text-amber-400">360</span></span>
               <p className="text-white/60 text-xs">भारत स्वास्थ्य पोर्टल</p>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function RegisterPage() {
             <div className="w-10 h-10 bg-navy-DEFAULT rounded-xl flex items-center justify-center">
               <HeartPulse className="w-6 h-6 text-white" />
             </div>
-            <span className="text-navy-DEFAULT font-black text-xl font-display">mrkseva <span className="text-teal-600">360</span></span>
+            <span className="text-navy-DEFAULT font-black text-xl font-display">mediseva <span className="text-teal-600">360</span></span>
           </div>
 
           <h1 className="text-2xl font-black text-navy-DEFAULT font-display mb-1">Create Your Account</h1>
@@ -355,7 +355,7 @@ export default function RegisterPage() {
           </p>
 
           <p className="text-center text-xs text-slate-400 mt-6">
-            © {new Date().getFullYear()} MRK SEVA 360 · Demo Environment · Not a real medical system
+            © {new Date().getFullYear()} MEDI SEVA 360 · Demo Environment · Not a real medical system
           </p>
         </div>
       </div>

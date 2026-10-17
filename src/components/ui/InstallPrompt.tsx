@@ -103,7 +103,7 @@ export default function InstallPrompt() {
                 <Smartphone className="w-6 h-6 text-white" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-[#1e3a8a]">Install MRK SEVA 360</p>
+                <p className="text-sm font-bold text-[#1e3a8a]">Install MEDI SEVA 360</p>
                 <p className="text-xs text-slate-500 mt-0.5">
                   {isIOS ? 'Add to your home screen for the best experience' : 'Install as app for faster access & offline support'}
                 </p>

@@ -1,4 +1,4 @@
-// Types for MRK SEVA 360
+// Types for MEDI SEVA 360
 
 export type UserRole = 'patient' | 'receptionist' | 'admin';
 

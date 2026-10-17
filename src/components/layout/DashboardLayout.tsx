@@ -53,7 +53,7 @@ export default function DashboardLayout({ children, sidebarItems, headerTitle, h
           </svg>
           <div>
             <p className="text-sm font-extrabold tracking-tight text-white">
-              mrkseva <span className="text-[#0d9488]">360</span>
+              mediseva <span className="text-[#0d9488]">360</span>
             </p>
             <p className="text-[10px] text-white/40">Healthcare Portal</p>
           </div>

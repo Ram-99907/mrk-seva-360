@@ -9,7 +9,7 @@ import { useAppStore } from '../../store/appStore';
 const DEMO_ROLES = [
   {
     role: 'Patient',
-    email: 'patient@demo.mrkseva',
+    email: 'patient@demo.mediseva',
     password: 'Demo@123',
     icon: User,
     color: 'border-[#1e3a8a]/30 bg-[#1e3a8a]/5 hover:border-[#1e3a8a]/60',
@@ -18,7 +18,7 @@ const DEMO_ROLES = [
   },
   {
     role: 'Receptionist',
-    email: 'receptionist@demo.mrkseva',
+    email: 'receptionist@demo.mediseva',
     password: 'Demo@123',
     icon: Stethoscope,
     color: 'border-[#0d9488]/30 bg-[#0d9488]/5 hover:border-[#0d9488]/60',
@@ -27,7 +27,7 @@ const DEMO_ROLES = [
   },
   {
     role: 'Admin',
-    email: 'admin@demo.mrkseva',
+    email: 'admin@demo.mediseva',
     password: 'Demo@123',
     icon: ShieldCheck,
     color: 'border-red-200 bg-red-50/50 hover:border-red-400',
@@ -89,7 +89,7 @@ export default function LoginPage() {
             <rect x="20" y="20" width="4" height="4" rx="1" fill="#0d9488" />
           </svg>
           <div>
-            <p className="text-lg font-extrabold tracking-tight">mrkseva <span className="text-[#0d9488]">360</span></p>
+            <p className="text-lg font-extrabold tracking-tight">mediseva <span className="text-[#0d9488]">360</span></p>
             <p className="text-xs text-white/60">Pan-India Healthcare Portal</p>
           </div>
         </Link>
@@ -141,7 +141,7 @@ export default function LoginPage() {
           {/* Mobile logo */}
           <Link to="/" className="flex items-center gap-2 mb-8 lg:hidden">
             <HeartPulse className="size-6 text-[#1e3a8a]" />
-            <span className="text-lg font-extrabold text-[#1e3a8a]">mrkseva <span className="text-[#0d9488]">360</span></span>
+            <span className="text-lg font-extrabold text-[#1e3a8a]">mediseva <span className="text-[#0d9488]">360</span></span>
           </Link>
 
           <h2 className="text-2xl font-extrabold text-[#1e3a8a] mb-1">Welcome back</h2>

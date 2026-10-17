@@ -22,7 +22,7 @@ async function seed() {
     VALUES (
       'staff-demo-001',
       'h005',
-      'admin@demo.mrkseva',
+      'admin@demo.mediseva',
       ${hash},
       'admin',
       true
@@ -38,7 +38,7 @@ async function seed() {
     VALUES (
       'staff-demo-002',
       'h005',
-      'receptionist@demo.mrkseva',
+      'receptionist@demo.mediseva',
       ${hash2},
       'receptionist',
       true
@@ -48,8 +48,8 @@ async function seed() {
           updated_at    = NOW()`;
 
   console.log('✅ Demo staff seeded!');
-  console.log('   Username: admin@demo.mrkseva | Password: Admin@123');
-  console.log('   Username: receptionist@demo.mrkseva | Password: Admin@123');
+  console.log('   Username: admin@demo.mediseva | Password: Admin@123');
+  console.log('   Username: receptionist@demo.mediseva | Password: Admin@123');
 }
 
 seed().catch(e => { console.error(e); process.exit(1); });

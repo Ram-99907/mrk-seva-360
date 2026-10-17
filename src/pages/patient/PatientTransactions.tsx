@@ -119,7 +119,7 @@ function PatientTransactionsContent() {
               ))}
             </div>
             <div className="border-t border-dashed border-gray-200 mt-4 pt-4">
-              <p className="text-xs text-center text-medical-muted">MRK SEVA 360 Demo Platform · Not a real receipt</p>
+              <p className="text-xs text-center text-medical-muted">MEDI SEVA 360 Demo Platform · Not a real receipt</p>
             </div>
             <button onClick={() => window.print()} className="btn-primary w-full mt-4">
               <Printer className="w-4 h-4" /> Print Receipt

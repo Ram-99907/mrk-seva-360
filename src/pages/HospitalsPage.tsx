@@ -485,7 +485,7 @@ export default function HospitalsPage() {
               <label className="flex cursor-pointer items-center justify-between rounded-lg border border-slate-200 px-3 py-2.5 hover:bg-slate-50 transition-colors">
                 <div>
                   <p className="text-sm font-medium text-slate-700">Online Booking Available</p>
-                  <p className="text-xs text-slate-400">OPD token via MRK SEVA 360</p>
+                  <p className="text-xs text-slate-400">OPD token via MEDI SEVA 360</p>
                 </div>
                 <input
                   type="checkbox"

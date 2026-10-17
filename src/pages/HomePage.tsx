@@ -133,7 +133,7 @@ const TESTIMONIALS = [
     name: 'Meena Kumari',      city: 'Lucknow',
     img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80&auto=format&fit=crop',
     rating: 5, date: 'Sep 2026',
-    text: 'MRK SEVA 360 showed me which government hospitals accept PMJAY near me. Saved us thousands of rupees. The insurance filter is a lifesaver!',
+    text: 'MEDI SEVA 360 showed me which government hospitals accept PMJAY near me. Saved us thousands of rupees. The insurance filter is a lifesaver!',
     hospital: 'KGMU Lucknow',
   },
   {
@@ -290,7 +290,7 @@ function VideoModal({ onClose }: { onClose: () => void }) {
             /* Default YouTube embed */
             <iframe
               src="https://www.youtube.com/embed/gWRMT7eLSag?autoplay=1&rel=0"
-              title="How MRK SEVA 360 Works"
+              title="How MEDI SEVA 360 Works"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="w-full h-full"
@@ -681,7 +681,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <p className="section-label text-amber-400 mb-2">Our Story</p>
           <h2 className="text-3xl md:text-4xl font-black text-white font-display mb-4">
-            How MRK SEVA 360 is Transforming<br />Healthcare Access in India
+            How MEDI SEVA 360 is Transforming<br />Healthcare Access in India
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
             A Pan-India platform connecting patients with verified hospitals, digital OPD tokens, live bed counts, and real-time emergency support.
@@ -912,7 +912,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ WHY mrkseva ════════════════════════════════════════════════════ */}
+      {/* ══ WHY mediseva ════════════════════════════════════════════════════ */}
       <section className="py-16 bg-[#f0f4ff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -954,7 +954,7 @@ export default function HomePage() {
               <p className="section-label">Why Choose Us</p>
               <h2 className="section-title mb-4">India's Most Trusted Healthcare Platform</h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                MRK SEVA 360 is the first unified OPD token platform covering all government and empanelled private hospitals across India. Powered by HFR, ABHA, and ABDM — built for Bharat.
+                MEDI SEVA 360 is the first unified OPD token platform covering all government and empanelled private hospitals across India. Powered by HFR, ABHA, and ABDM — built for Bharat.
               </p>
               <div className="space-y-4">
                 {[
@@ -989,7 +989,7 @@ export default function HomePage() {
         >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-3">MRK SEVA 360 App</p>
+              <p className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-3">MEDI SEVA 360 App</p>
               <h2 className="text-3xl md:text-4xl font-black text-white font-display mb-4">
                 Healthcare in Your Pocket
               </h2>

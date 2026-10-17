@@ -140,7 +140,7 @@ export const useAppStore = create<AppState>()(
               status: 'pending',
               changedAt: new Date().toISOString(),
               changedBy: data.patientName,
-              note: 'Appointment request submitted via MRK SEVA 360 (Demo)',
+              note: 'Appointment request submitted via MEDI SEVA 360 (Demo)',
             }
           ],
         };
@@ -279,7 +279,7 @@ export const useAppStore = create<AppState>()(
       },
     }),
     {
-      name: 'mrkseva-demo-store',
+      name: 'mediseva-demo-store',
       partialize: (state) => ({
         currentUser: state.currentUser,
         isAuthenticated: state.isAuthenticated,

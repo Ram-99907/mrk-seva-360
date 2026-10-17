@@ -7,7 +7,7 @@ interface Msg { role: 'user' | 'assistant'; text: string; time: string; }
 const t = () => new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
 
 // ── System context for healthcare assistant ──────────────────────────────────
-const SYSTEM_PROMPT = `You are MRK Health Assistant, an AI healthcare helper for MRK SEVA 360 — a healthcare platform serving Kadapa and Proddatur districts in Andhra Pradesh, India.
+const SYSTEM_PROMPT = `You are MRK Health Assistant, an AI healthcare helper for MEDI SEVA 360 — a healthcare platform serving Kadapa and Proddatur districts in Andhra Pradesh, India.
 
 You help users with:
 - Finding hospitals in Kadapa, Proddatur, and nearby areas
@@ -19,7 +19,7 @@ You help users with:
 
 Key info:
 - Emergency: Call 108 for ambulance
-- Platform: MRK SEVA 360 (demo healthcare portal)
+- Platform: MEDI SEVA 360 (demo healthcare portal)
 - Location: Kadapa district, Andhra Pradesh
 
 Always:
@@ -32,7 +32,7 @@ Always:
 // ── Fallback responses when no API key ──────────────────────────────────────
 const FALLBACKS: Record<string, string> = {
   default: "I'm your MRK Health Assistant! I can help with hospital info, appointments, and general health queries. How can I help you?",
-  hospital: "MRK SEVA 360 covers hospitals in Kadapa, Proddatur, Mydukur, Jammalamadugu and more. Use 'Find Hospitals' to search by specialty.",
+  hospital: "MEDI SEVA 360 covers hospitals in Kadapa, Proddatur, Mydukur, Jammalamadugu and more. Use 'Find Hospitals' to search by specialty.",
   ambulance: "🚨 For emergencies call **108** immediately (free, 24/7). You can also track ambulances live on our Ambulance Tracker page.",
   appointment: "To book an appointment: Login → Find Hospitals → Select a hospital → Book Appointment tab. This is a demo — not a real booking system.",
   emergency: "🚨 Call **108** for ambulance or **100** for police. Go to the nearest government hospital for emergencies.",

@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons.svg', 'pwa-icon.svg'],
       manifest: {
-        name: 'MRK SEVA 360 — Healthcare Portal',
-        short_name: 'MRK SEVA 360',
+        name: 'MEDI SEVA 360 — Healthcare Portal',
+        short_name: 'MEDI SEVA 360',
         description: 'One Platform. Every Hospital. Smarter Healthcare. Book appointments, track ambulances, video consult.',
         theme_color: '#1e3a8a',
         background_color: '#f0f4ff',

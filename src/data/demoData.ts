@@ -973,7 +973,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u001',
     name: 'Arjun Mehta',
-    email: 'patient@demo.mrkseva',
+    email: 'patient@demo.mediseva',
     phone: '9876543210',
     role: 'patient',
     avatarInitials: 'AM',
@@ -982,7 +982,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u002',
     name: 'Priya Sharma',
-    email: 'receptionist@demo.mrkseva',
+    email: 'receptionist@demo.mediseva',
     phone: '9876543211',
     role: 'receptionist',
     hospitalId: 'h001',
@@ -992,7 +992,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u003',
     name: 'Rahul Nair',
-    email: 'admin@demo.mrkseva',
+    email: 'admin@demo.mediseva',
     phone: '9876543212',
     role: 'admin',
     avatarInitials: 'RN',
@@ -1001,7 +1001,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u004',
     name: 'Sunita Rao',
-    email: 'sunita@demo.mrkseva',
+    email: 'sunita@demo.mediseva',
     phone: '9876543213',
     role: 'patient',
     avatarInitials: 'SR',
@@ -1010,7 +1010,7 @@ export const DEMO_USERS: User[] = [
   {
     id: 'u005',
     name: 'Vikram Singh',
-    email: 'vikram@demo.mrkseva',
+    email: 'vikram@demo.mediseva',
     phone: '9876543214',
     role: 'patient',
     avatarInitials: 'VS',
@@ -1019,9 +1019,9 @@ export const DEMO_USERS: User[] = [
 ];
 
 export const DEMO_CREDENTIALS: Record<string, { password: string; userId: string }> = {
-  'patient@demo.mrkseva': { password: 'Demo@123', userId: 'u001' },
-  'receptionist@demo.mrkseva': { password: 'Demo@123', userId: 'u002' },
-  'admin@demo.mrkseva': { password: 'Demo@123', userId: 'u003' },
+  'patient@demo.mediseva': { password: 'Demo@123', userId: 'u001' },
+  'receptionist@demo.mediseva': { password: 'Demo@123', userId: 'u002' },
+  'admin@demo.mediseva': { password: 'Demo@123', userId: 'u003' },
 };
 
 // ─── Demo Appointments ───────────────────────────────────────────────────────
@@ -1033,7 +1033,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u001',
     patientName: 'Arjun Mehta',
     patientPhone: '9876543210',
-    patientEmail: 'patient@demo.mrkseva',
+    patientEmail: 'patient@demo.mediseva',
     hospitalId: 'h001',
     hospitalName: 'AIIMS New Delhi',
     specialty: 'Cardiology',
@@ -1055,7 +1055,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u001',
     patientName: 'Arjun Mehta',
     patientPhone: '9876543210',
-    patientEmail: 'patient@demo.mrkseva',
+    patientEmail: 'patient@demo.mediseva',
     hospitalId: 'h008',
     hospitalName: 'Apollo Hospitals, Chennai',
     specialty: 'Oncology',
@@ -1074,7 +1074,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u001',
     patientName: 'Arjun Mehta',
     patientPhone: '9876543210',
-    patientEmail: 'patient@demo.mrkseva',
+    patientEmail: 'patient@demo.mediseva',
     hospitalId: 'h003',
     hospitalName: 'NIMHANS, Bengaluru',
     specialty: 'Psychiatry',
@@ -1096,7 +1096,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u004',
     patientName: 'Sunita Rao',
     patientPhone: '9876543213',
-    patientEmail: 'sunita@demo.mrkseva',
+    patientEmail: 'sunita@demo.mediseva',
     hospitalId: 'h001',
     hospitalName: 'AIIMS New Delhi',
     specialty: 'Neurology',
@@ -1115,7 +1115,7 @@ export const DEMO_APPOINTMENTS: Appointment[] = [
     patientId: 'u005',
     patientName: 'Vikram Singh',
     patientPhone: '9876543214',
-    patientEmail: 'vikram@demo.mrkseva',
+    patientEmail: 'vikram@demo.mediseva',
     hospitalId: 'h002',
     hospitalName: 'KEM Hospital, Mumbai',
     specialty: 'Orthopaedics',

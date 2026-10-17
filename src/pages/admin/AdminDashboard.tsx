@@ -136,7 +136,7 @@ function AdminDashboardContent() {
             <p className="text-sm text-white/60">{now}</p>
             <h2 className="text-xl font-black mt-1">Welcome back, {currentUser?.name?.split(' ')[0]} 👋</h2>
             <p className="text-sm text-white/70 mt-1">
-              MRK SEVA 360 Admin Panel · {DEMO_HOSPITALS.length} facilities registered · {appointments.length} total appointments
+              MEDI SEVA 360 Admin Panel · {DEMO_HOSPITALS.length} facilities registered · {appointments.length} total appointments
             </p>
           </div>
           <div className="flex gap-3 flex-wrap">
@@ -393,7 +393,7 @@ export default function AdminDashboard() {
       <DashboardLayout
         sidebarItems={adminSidebar}
         headerTitle={t('admin.dashboard')}
-        headerSubtitle="MRK SEVA 360 System Overview"
+        headerSubtitle="MEDI SEVA 360 System Overview"
       >
         <AdminDashboardContent />
       </DashboardLayout>

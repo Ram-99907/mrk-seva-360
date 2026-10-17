@@ -348,7 +348,7 @@ export default function HospitalDetailPage() {
                     <CalendarPlus className="w-4 h-4" /> Book OPD Token
                   </button>
                 ) : (
-                  <p className="text-xs text-orange-700 mt-1">Online booking not available via MRK SEVA 360 for this hospital. Contact the hospital directly.</p>
+                  <p className="text-xs text-orange-700 mt-1">Online booking not available via MEDI SEVA 360 for this hospital. Contact the hospital directly.</p>
                 )}
               </div>
 
@@ -513,7 +513,7 @@ export default function HospitalDetailPage() {
                 <AlertCircle className="w-16 h-16 text-orange-400 mx-auto mb-4" />
                 <h3 className="font-bold text-navy-DEFAULT font-display text-xl mb-2">Online Booking Not Available</h3>
                 <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
-                  Online booking is not available through MRK SEVA 360 for this hospital. Please use the hospital's official booking channel or contact the hospital directly.
+                  Online booking is not available through MEDI SEVA 360 for this hospital. Please use the hospital's official booking channel or contact the hospital directly.
                 </p>
                 {hospital.phone && (
                   <p className="text-teal-700 font-semibold mt-4">📞 {hospital.phone}</p>
