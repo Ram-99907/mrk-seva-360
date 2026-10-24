@@ -1,6 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ToastContainer from './components/ui/ToastContainer';
 import PushNotificationPrompt from './components/ui/PushNotificationPrompt';
+import { initInstallTracker } from './utils/installTracker';
+
+// Initialize install & visit tracking
+initInstallTracker();
 
 // Public pages
 import HomePage from './pages/HomePage';
