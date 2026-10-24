@@ -42,7 +42,8 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2,jpg}'],
+        importScripts: ['/push-handler.js'],
         navigateFallback: '/index.html',
         runtimeCaching: [
           {

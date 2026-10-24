@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ToastContainer from './components/ui/ToastContainer';
+import PushNotificationPrompt from './components/ui/PushNotificationPrompt';
 
 // Public pages
 import HomePage from './pages/HomePage';
@@ -34,6 +35,7 @@ import AdminHospitals from './pages/admin/AdminHospitals';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminAppointments from './pages/admin/AdminAppointments';
 import AdminReports from './pages/admin/AdminReports';
+import AdminNotifications from './pages/admin/AdminNotifications';
 
 // 404
 import NotFoundPage from './pages/NotFoundPage';
@@ -74,6 +76,7 @@ function App() {
         <Route path="/admin/hospitals" element={<AdminHospitals />} />
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/admin/appointments" element={<AdminAppointments />} />
+        <Route path="/admin/notifications" element={<AdminNotifications />} />
         <Route path="/admin/reports" element={<AdminReports />} />
 
         {/* Fallback */}
@@ -81,6 +84,7 @@ function App() {
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
       <ToastContainer />
+      <PushNotificationPrompt />
     </BrowserRouter>
   );
 }
