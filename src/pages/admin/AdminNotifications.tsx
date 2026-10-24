@@ -70,13 +70,11 @@ function AdminNotificationsContent() {
       const { addNotification } = useAppStore.getState();
       if (addNotification) {
         addNotification({
-          id: 'push-' + Date.now(),
           userId: 'all',
           title: title.trim(),
           message: body.trim(),
           type: 'system_alert',
           read: false,
-          createdAt: new Date().toISOString(),
         });
       }
 
