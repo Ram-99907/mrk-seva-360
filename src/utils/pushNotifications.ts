@@ -46,9 +46,10 @@ export async function subscribeToPush(): Promise<PushSubscription | null> {
     }
 
     // Create new subscription
+    const applicationServerKey = urlBase64ToUint8Array(VAPID_PUBLIC_KEY);
     subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY),
+      applicationServerKey: applicationServerKey.buffer as ArrayBuffer,
     });
 
     // Send to server
@@ -103,7 +104,8 @@ export async function sendLocalNotification(title: string, body: string, url?: s
   
   try {
     const registration = await navigator.serviceWorker.ready;
-    await registration.showNotification(title, {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const options: any = {
       body,
       icon: '/logo.jpg',
       badge: '/logo.jpg',
@@ -114,7 +116,8 @@ export async function sendLocalNotification(title: string, body: string, url?: s
         { action: 'open', title: 'Open' },
         { action: 'dismiss', title: 'Dismiss' },
       ],
-    });
+    };
+    await registration.showNotification(title, options);
   } catch {
     // Fallback to basic Notification API
     new Notification(title, {
