@@ -2,8 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Bell, Send, Users, CheckCircle2, AlertCircle, Clock,
-  LayoutDashboard, Building2, Calendar, BarChart3, Shield, Settings,
-  Megaphone, Smartphone, Globe, RefreshCcw, Trash2, Eye,
+  Megaphone, Smartphone, Globe, Trash2, Eye,
 } from 'lucide-react';
 import DashboardLayout from '../../components/layout/DashboardLayout';
 import ProtectedRoute from '../../components/auth/ProtectedRoute';
@@ -75,7 +74,7 @@ function AdminNotificationsContent() {
           userId: 'all',
           title: title.trim(),
           message: body.trim(),
-          type: 'system',
+          type: 'system_alert',
           read: false,
           createdAt: new Date().toISOString(),
         });
@@ -377,14 +376,14 @@ export default function AdminNotifications() {
   const { t } = useTranslation();
 
   const sidebarItems = [
-    { label: 'Overview', icon: LayoutDashboard, href: '/admin/dashboard' },
-    { label: 'Hospitals', icon: Building2, href: '/admin/hospitals' },
-    { label: 'Users', icon: Users, href: '/admin/users' },
-    { label: 'Appointments', icon: Calendar, href: '/admin/appointments' },
-    { label: 'Push Notifications', icon: Megaphone, href: '/admin/notifications', active: true },
-    { label: 'Reports', icon: BarChart3, href: '/admin/reports' },
-    { label: 'Audit Logs', icon: Shield, href: '/admin/audit' },
-    { label: 'Settings', icon: Settings, href: '/admin/settings' },
+    { label: 'Overview', icon: 'LayoutDashboard', href: '/admin/dashboard' },
+    { label: 'Hospitals', icon: 'Building2', href: '/admin/hospitals' },
+    { label: 'Users', icon: 'Users', href: '/admin/users' },
+    { label: 'Appointments', icon: 'Calendar', href: '/admin/appointments' },
+    { label: 'Push Notifications', icon: 'Megaphone', href: '/admin/notifications', active: true },
+    { label: 'Reports', icon: 'BarChart2', href: '/admin/reports' },
+    { label: 'Audit Logs', icon: 'Shield', href: '/admin/audit' },
+    { label: 'Settings', icon: 'Settings', href: '/admin/settings' },
   ];
 
   return (
